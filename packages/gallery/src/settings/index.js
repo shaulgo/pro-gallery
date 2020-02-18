@@ -23,6 +23,9 @@ import galleryTextAlign from './options/galleryTextAlign';
 import videoPlay from './options/videoPlay';
 import imageHoverAnimation from './options/imageHoverAnimation';
 import overlayAnimation from './options/overlayAnimation';
+import gallerySize from './options/gallerySize';
+import gallerySizePx from './options/gallerySizePx';
+import gallerySizeRatio from './options/gallerySizeRatio';
 
 export default {
     itemClick,
@@ -50,4 +53,7 @@ export default {
     videoPlay,
     imageHoverAnimation,
     overlayAnimation,
+    gallerySize,
+    gallerySizePx,
+    gallerySizeRatio,
 }
