@@ -356,14 +356,14 @@ function processLayouts(styles) {
     processedStyles.imageLoadingMode = LOADING_MODE.MAIN_COLOR;
   }
 
-  processedStyles.textBoxHeight = getTextBoxHeight(processedStyles);
+  processedStyles.textBoxHeight = getTextBoxAboveOrBelowHeight(processedStyles);
   processedStyles.externalInfoHeight = getHeightFromStyleParams(
     processedStyles,
     processedStyles.textBoxHeight,
   );
 
-  processedStyles.textBoxWidth = processedStyles.textBoxWidth;
-  processedStyles.externalInfoWidth = processedStyles.titlePlacement === PLACEMENTS.SHOW_ON_THE_RIGHT && processedStyles.textBoxWidth;
+  processedStyles.textBoxWidth = getTextBoxRightOrLeftWidth(processedStyles);
+  processedStyles.externalInfoWidth = processedStyles.textBoxWidth;
 
   if (
     processedStyles.cubeType === 'fit' &&
@@ -560,8 +560,36 @@ function getHeightFromStyleParams(styleParams, textBoxHeight) {
   return additionalHeight;
 }
 
-function getTextBoxHeight(styleParams) {
-  if (!shouldShowTextBox(styleParams)) {
+function getTextBoxRightOrLeftWidth(styleParams) {
+  if (!shouldShowTextRightOrLeftBelow(styleParams)) {
+    return 0;
+  }
+  return styleParams.textBoxWidth;
+}
+
+function shouldShowTextRightOrLeftBelow(styleParams) {
+  const {
+    oneRow,
+    isVertical,
+    groupSize,
+    titlePlacement,
+    allowTitle,
+    allowDescription,
+    useCustomButton,
+  } = styleParams;
+
+  const allowedByLayoutConfig = !oneRow && isVertical && groupSize === 1;
+
+  if (!allowedByLayoutConfig ||
+    titlePlacement !== 'SHOW_ON_THE_RIGHT' ||
+    (!allowTitle && !allowDescription && !useCustomButton)) {
+    return false;
+  }
+  return true;
+}
+
+function getTextBoxAboveOrBelowHeight(styleParams) {
+  if (!shouldShowTextBoxAboveOrBelow(styleParams)) {
     return 0;
   }
 
@@ -574,7 +602,7 @@ function getTextBoxHeight(styleParams) {
   }
 }
 
-function shouldShowTextBox(styleParams) {
+function shouldShowTextBoxAboveOrBelow(styleParams) {
   const {
     titlePlacement,
     allowTitle,
@@ -600,7 +628,7 @@ function getHeightByContent(styleParams) {
     useCustomButton,
   } = styleParams;
 
-  if (!shouldShowTextBox(styleParams)) {
+  if (!shouldShowTextBoxAboveOrBelow(styleParams)) {
     return 0;
   }
 
