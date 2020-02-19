@@ -711,13 +711,14 @@ class ItemView extends GalleryComponent {
   }
 
   getBottomInfoElementIfNeeded() {
-    const { styleParams } = this.props;
+    const { styleParams, customInfoRenderer } = this.props;
 
     if (
       styleParams.titlePlacement === PLACEMENTS.SHOW_BELOW &&
       (styleParams.allowTitle ||
         styleParams.allowDescription ||
-        styleParams.useCustomButton)
+        styleParams.useCustomButton ||
+        customInfoRenderer)
     ) {
       return this.getInfoElement('gallery-item-bottom-info');
     } else {
@@ -726,13 +727,15 @@ class ItemView extends GalleryComponent {
   }
 
   getTopInfoElementIfNeeded() {
-    const { styleParams } = this.props;
+    const { styleParams, customInfoRenderer } = this.props;
 
     if (
       styleParams.titlePlacement === PLACEMENTS.SHOW_ABOVE &&
       (styleParams.allowTitle ||
         styleParams.allowDescription ||
-        styleParams.useCustomButton)
+        styleParams.useCustomButton ||
+        customInfoRenderer
+      )
     ) {
       return this.getInfoElement('gallery-item-top-info');
     } else {
@@ -819,7 +822,7 @@ class ItemView extends GalleryComponent {
         'transparent';
     }
     styles.margin = -styleParams.itemBorderWidth + 'px';
-    
+
     if (!this.props.isUnknownWidth) {
       styles.height = height + 'px';
     }

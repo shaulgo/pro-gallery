@@ -351,7 +351,7 @@ function processLayouts(styles) {
     ) {
     processedStyles.hoveringBehaviour = INFO_BEHAVIOUR_ON_HOVER.APPEARS;
   }
-  
+
   if (processedStyles.imageLoadingMode === LOADING_MODE.COLOR && processedStyles.imageLoadingWithColorMode === LOADING_WITH_COLOR_MODE.MAIN_COLOR) {
     processedStyles.imageLoadingMode = LOADING_MODE.MAIN_COLOR;
   }
@@ -361,6 +361,9 @@ function processLayouts(styles) {
     processedStyles,
     processedStyles.textBoxHeight,
   );
+
+  processedStyles.textBoxWidth = processedStyles.textBoxWidth;
+  processedStyles.externalInfoWidth = processedStyles.titlePlacement === PLACEMENTS.SHOW_ON_THE_RIGHT && processedStyles.textBoxWidth;
 
   if (
     processedStyles.cubeType === 'fit' &&
