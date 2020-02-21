@@ -43,6 +43,7 @@ export default class ProGallery extends GalleryComponent {
   }
 
   render() {
+    //this.props.items.forEach(item => item.url = '');
     return (
       this.canRender && (
         <div id={`pro-gallery-${this.props.domId}`} className="pro-gallery">
