@@ -3,6 +3,7 @@ import React from 'react';
 import ProGallery from '../proGallery/proGallery';
 import LAYOUTS from '../../../common/constants/layout';
 import SCROLL_DIRECTION from '../../../common/constants/scrollDirection';
+import { getImagesPerRowStyleIfNeeded } from './utils/utils';
 
 export const fixedStyles = {
   galleryLayout: LAYOUTS.MASONRY,
@@ -27,9 +28,12 @@ export const fixedStyles = {
 }
 
 export const createStyles = styles => {
+  const _styles = Object.assign({}, styles, fixedStyles)
+  const processedStyles = {
+    ...getImagesPerRowStyleIfNeeded(_styles)
+  }
   return {
-    ...styles,
-    ...fixedStyles,
+    ..._styles,
     gallerySize: styles.gallerySize,
   }
 }

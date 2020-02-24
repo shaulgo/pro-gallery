@@ -3,6 +3,7 @@ import ProGallery from '../proGallery/proGallery';
 import LAYOUTS from '../../../common/constants/layout';
 import isEligibleForLeanGallery from '../leanGallery/isEligible';
 import LeanGallery from '../leanGallery/leanGallery';
+import { getImagesPerColStyleIfNeeded, getImagesPerRowStyleIfNeeded } from './utils/utils';
 
 export const fixedStyles = {
   galleryLayout: LAYOUTS.GRID,
@@ -29,10 +30,15 @@ export const fixedStyles = {
 }
 
 export const createStyles = styles => {
+   styles = Object.assign({}, styles, fixedStyles)
+   const processedStyles = {
+    ...getImagesPerRowStyleIfNeeded(styles),
+    ...getImagesPerColStyleIfNeeded(styles),
+  }
+
   return {
-    ...styles,
-    ...fixedStyles,
-    gallerySize: styles.modifiedGallerySize ? styles.gallerySize : Math.round(styles.gallerySize * 8.5 + 150),
+    ...processedStyles,
+    gallerySize: processedStyles.modifiedGallerySize ? processedStyles.gallerySize : Math.round(processedStyles.gallerySize * 8.5 + 150),
     modifiedGallerySize: true
   }
 }
