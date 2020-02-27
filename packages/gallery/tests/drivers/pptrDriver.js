@@ -47,7 +47,12 @@ export default class galleryDriver {
     await page.waitFor(2500);
     return page;
   }
-
+  setViewport(viewport){
+    return this.page.setViewport({
+      width: viewport.width,
+      height: viewport.height,
+    })
+  }
   async scrollInteraction(){
     await this.page.evaluate(() => { // scroll the gallery down and back up to make the items load
       window.scrollBy(0, 200);
