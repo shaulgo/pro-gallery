@@ -4,7 +4,6 @@ import ProGallery from '../proGallery/proGallery';
 import LAYOUTS from '../../../common/constants/layout';
 import dimensionsHelper from '../../helpers/dimensionsHelper';
 import PLACEMENTS from '../../../common/constants/placements';
-import SCROLL_DIRECTION from '../../../common/constants/scrollDirection';
 
 export const fixedStyles = {
   galleryLayout: LAYOUTS.FULLSIZE,
@@ -13,7 +12,6 @@ export const fixedStyles = {
   cubeType: 'fill',
   oneRow: true,
   titlePlacement: PLACEMENTS.SHOW_ON_HOVER,
-  scrollDirection: SCROLL_DIRECTION.HORIZONTAL,
   galleryMargin: 0,
   isVertical: false,
   groupSize: 1,

@@ -3,7 +3,6 @@ import React from 'react';
 import ProGallery from '../proGallery/proGallery';
 import LAYOUTS from '../../../common/constants/layout';
 import PLACEMENTS from '../../../common/constants/placements';
-import SCROLL_DIRECTION from '../../../common/constants/scrollDirection';
 
 export const fixedStyles = {
   galleryLayout: LAYOUTS.ALTERNATE,
@@ -11,7 +10,6 @@ export const fixedStyles = {
   cubeImages: true,
   cubeRatio: 1,
   titlePlacement: PLACEMENTS.SHOW_ON_HOVER,
-  scrollDirection: SCROLL_DIRECTION.VERTICAL,
   galleryMargin: 0,
   isVertical: true,
   groupSize: 3,

@@ -2,12 +2,10 @@
 import React from 'react';
 import ProGallery from '../proGallery/proGallery';
 import LAYOUTS from '../../../common/constants/layout';
-import SCROLL_DIRECTION from '../../../common/constants/scrollDirection';
 
 export const fixedStyles = {
   galleryLayout: LAYOUTS.MASONRY,
   cubeImages: false,
-  scrollDirection: SCROLL_DIRECTION.VERTICAL,
   groupSize: 1,
   groupTypes: '1',
   

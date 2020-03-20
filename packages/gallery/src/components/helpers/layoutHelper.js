@@ -10,7 +10,6 @@ import designConsts from '../../common/constants/designConsts';
 import INFO_TYPE from '../../common/constants/infoType';
 import TEXT_BOX_HEIGHT_CALCULATION_OPTIONS from '../../common/constants/textBoxHeightCalculationOptions';
 import TEXT_BOX_WIDTH_CALCULATION_OPTIONS from '../../common/constants/textBoxWidthCalculationOptions';
-import SCROLL_DIRECTION from '../../common/constants/scrollDirection';
 import LOADING_MODE from '../../common/constants/loadingMode';
 import LOADING_WITH_COLOR_MODE from '../../common/constants/loadingWithColorMode';
 import NEW_PRESETS from '../gallery/presets/presets';
@@ -245,8 +244,7 @@ function addLayoutStyles(styles) {
 function processLayouts(styles) {
   const processedStyles = styles;
   processedStyles.isSlideshowFont = isSlideshowFont(processedStyles);
-  processedStyles.oneRow = processedStyles.oneRow || processedStyles.scrollDirection === SCROLL_DIRECTION.HORIZONTAL;
-
+  
   if (utils.isMobile()) {
     if (processedStyles.isSlideshowFont) {
       if (!utils.isUndefined(processedStyles.itemFontSlideshow)) {
