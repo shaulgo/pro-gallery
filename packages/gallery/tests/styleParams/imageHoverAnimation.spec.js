@@ -11,7 +11,7 @@ describe('styleParam - imageHoverAnimation', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,9 +19,9 @@ describe('styleParam - imageHoverAnimation', () => {
 
   it('should have "Zoom in" animation on items', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.ZOOM_IN,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      imageHoverAnimation: GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS.ZOOM_IN,
+    });
     driver.mount.proGallery(initialProps);
     const animatedItems = driver.find.selector('.zoom-in-on-hover').at(0);
     expect(animatedItems.length).to.be.greaterThan(0)
@@ -29,9 +29,9 @@ describe('styleParam - imageHoverAnimation', () => {
   });
   it('should have "Blur" animation on items', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.BLUR,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      imageHoverAnimation: GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS.BLUR,
+    });
     driver.mount.proGallery(initialProps);
     const animatedItems = driver.find.selector('.blur-on-hover').at(0);
     expect(animatedItems.length).to.be.greaterThan(0)
@@ -39,9 +39,9 @@ describe('styleParam - imageHoverAnimation', () => {
   });
   it('should have "Greyscale" animation on items', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.GRAYSCALE,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      imageHoverAnimation: GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS.GRAYSCALE,
+    });
     driver.mount.proGallery(initialProps);
     const animatedItems = driver.find.selector('.grayscale-on-hover').at(0);
     expect(animatedItems.length).to.be.greaterThan(0)
@@ -49,9 +49,9 @@ describe('styleParam - imageHoverAnimation', () => {
   });
   it('should have "Shrink" animation on items', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.SHRINK,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      imageHoverAnimation: GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS.SHRINK,
+    });
     driver.mount.proGallery(initialProps);
     const animatedItems = driver.find.selector('.shrink-on-hover').at(0);
     expect(animatedItems.length).to.be.greaterThan(0)
@@ -59,9 +59,9 @@ describe('styleParam - imageHoverAnimation', () => {
   });
   it('should have "invert" animation on items', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.INVERT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      imageHoverAnimation: GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS.INVERT,
+    });
     driver.mount.proGallery(initialProps);
     const animatedItems = driver.find.selector('.invert-on-hover').at(0);
     expect(animatedItems.length).to.be.greaterThan(0)
@@ -69,9 +69,9 @@ describe('styleParam - imageHoverAnimation', () => {
   });
   it('should have "Color in" animation on items', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.COLOR_IN,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      imageHoverAnimation: GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS.COLOR_IN,
+    });
     driver.mount.proGallery(initialProps);
     const animatedItems = driver.find.selector('.color-in-on-hover').at(0);
     expect(animatedItems.length).to.be.greaterThan(0)
@@ -79,12 +79,12 @@ describe('styleParam - imageHoverAnimation', () => {
   });
   it('should have "Darkened" animation on items', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.DARKENED,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      imageHoverAnimation: GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS.DARKENED,
+    });
     driver.mount.proGallery(initialProps);
     const animatedItems = driver.find.selector('.darkened-on-hover').at(0);
     expect(animatedItems.length).to.be.greaterThan(0)
     driver.detach.proGallery();
   });
-})
+});

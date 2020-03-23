@@ -6,9 +6,9 @@ export default {
   isRelevant: (styleParams) => (styleParams.isVertical &&
     styleParams.groupSize === 1 &&
     !styleParams.oneRow) &&
-    styleParams.calculateTextBoxWidthMode === GALLERY_CONSTS.textBoxWidthCalculationOptions.PERCENT &&
-    (styleParams.titlePlacement === GALLERY_CONSTS.placements.SHOW_ON_THE_LEFT ||
-      styleParams.titlePlacement === GALLERY_CONSTS.placements.SHOW_ON_THE_RIGHT) &&
+    styleParams.calculateTextBoxWidthMode === GALLERY_CONSTS.TEXT_BOX_WIDTH_CALCULATION_OPTIONS.PERCENT &&
+    (styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_ON_THE_LEFT ||
+      styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_ON_THE_RIGHT) &&
     (styleParams.allowTitle || styleParams.allowDescription),
   type: INPUT_TYPES.NUMBER,
   default: 50,

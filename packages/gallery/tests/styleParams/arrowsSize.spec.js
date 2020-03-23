@@ -11,7 +11,7 @@ describe('styleParam - arrowsSize', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,9 +19,9 @@ describe('styleParam - arrowsSize', () => {
 
   it('should set the correct arrowsSize', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
       arrowsSize: 50
-    })
+    });
     driver.mount.proGallery(initialProps);
     const arrowImage = driver.find.selector('.nav-arrows-container svg');
     const { transform } = arrowImage.props().style
@@ -31,10 +31,10 @@ describe('styleParam - arrowsSize', () => {
   });
   it('should set the position of arrows according to arrowsSize', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
       arrowsSize: 50,
       arrowsPosition: 1,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const arrowContainer = driver.find.selector('.nav-arrows-container');
     const { right } = arrowContainer.props().style
@@ -42,4 +42,4 @@ describe('styleParam - arrowsSize', () => {
     expect(right).to.eq(`-${arrowPosition}px`);
     driver.detach.proGallery();
   });
-})
+});

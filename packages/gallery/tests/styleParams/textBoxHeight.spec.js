@@ -11,7 +11,7 @@ describe('styleParam - textBoxHeight', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,14 +19,14 @@ describe('styleParam - textBoxHeight', () => {
 
   it('should set "textBoxHeight" of "250"(manual)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
       allowTitle: true,
-      calculateTextBoxHeightMode: GALLERY_CONSTS.textBoxHeightCalculationOptions.MANUAL,
+      calculateTextBoxHeightMode: GALLERY_CONSTS.TEXT_BOX_HEIGHT_CALCULATION_OPTIONS.MANUAL,
       textBoxHeight: 250,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const textBox = driver.find.selector('.gallery-item-common-info').at(0);
     console.log(textBox.props().style.height);
@@ -34,4 +34,4 @@ describe('styleParam - textBoxHeight', () => {
     expect(height).to.eq(250);
     driver.detach.proGallery();
   });
-})
+});

@@ -10,32 +10,32 @@ describe('styleParam - slideshowInfoSize', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
   beforeEach(() => {
     driver = new GalleryDriver();
   });
   it('should set style for "slideshowInfoSize=250"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.SLIDESHOW,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
       allowTitle:true,
       slideshowInfoSize: 250,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const infoContainer = driver.find.selector('.gallery-item-info').at(0);
     console.log(infoContainer.props().style);
     const infoStyleMock = {
       height: '250px',
       bottom: '-250px'
-    }
+    };
     expect(infoContainer.props().style).to.deep.equal(infoStyleMock);
     driver.detach.proGallery();
   });
   it('should set the right height for the gallery', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.SLIDESHOW,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
       allowTitle:true,
       slideshowInfoSize: 250,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     console.log(initialProps.container.height);
@@ -44,4 +44,4 @@ describe('styleParam - slideshowInfoSize', () => {
     expect(height).to.eq(initialProps.container.height - 250);
     driver.detach.proGallery();
   });
-})
+});

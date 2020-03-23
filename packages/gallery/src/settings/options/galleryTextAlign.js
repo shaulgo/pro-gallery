@@ -5,8 +5,8 @@ export default {
   title: 'Text alignment',
   isRelevant: (styleParams)  => styleParams.allowTitle || styleParams.allowDescription,
   type: INPUT_TYPES.OPTIONS,
-  default: GALLERY_CONSTS.galleryTextAlign.CENTER,
-  options: createOptions('galleryTextAlign'),
+  default: GALLERY_CONSTS.GALLERY_TEXT_ALIGN.CENTER,
+  options: createOptions('GALLERY_TEXT_ALIGN'),
   description: `This option sets the alignment (left, right or center) of each item in the gallery.
   `,
 }

@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('numberOfImagesPerRow - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -23,7 +23,7 @@ describe('numberOfImagesPerRow - e2e', () => {
       numberOfImagesPerRow:1,
       gridStyle: 1,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
@@ -36,7 +36,7 @@ describe('numberOfImagesPerRow - e2e', () => {
       numberOfImagesPerRow:2,
       gridStyle: 1,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
@@ -49,11 +49,11 @@ describe('numberOfImagesPerRow - e2e', () => {
       numberOfImagesPerRow:3,
       gridStyle: 1,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
     const page = await driver.grab.elemScreenshot('.pro-gallery');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

@@ -12,7 +12,7 @@ describe('styleParam - scrollAnimation', () => {
       container,
       items: [...images2, ...images2],
       styles: styleParams,
-    }
+    };
 
     beforeEach(() => {
       driver = new GalleryDriver();
@@ -23,18 +23,18 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.FADE_IN,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.FADE_IN,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(3).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
       const animationMock = {
         filter: 'opacity(0)',
         transition: 'filter 1.100s ease-in'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -44,18 +44,18 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.GRAYSCALE,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.GRAYSCALE,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(3).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
       const animationMock = {
         filter: 'grayscale(100%)',
         transition: 'filter 1.300s ease-in'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -65,19 +65,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.SLIDE_UP,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.SLIDE_UP,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-container').at(3).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         transform: 'translateY(100px)',
         transition: 'transform 0.8s cubic-bezier(.13,.78,.53,.92)'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -87,19 +87,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.EXPAND,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.EXPAND,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-container').at(3).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         transform: 'scale(0.95)',
         transition: 'transform 1s cubic-bezier(.13,.78,.53,.92)'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -109,18 +109,18 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.SHRINK,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.SHRINK,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-container').at(3).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
       const animationMock = {
         transform: 'scale(1.05)',
         transition: 'transform 1s cubic-bezier(.13,.78,.53,.92)'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -129,19 +129,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.ZOOM_OUT,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.ZOOM_OUT,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(3).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         transform: 'scale(1.1)',
         transition: 'transform 1.2s cubic-bezier(.13,.78,.53,.92)',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -151,20 +151,20 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.ONE_COLOR,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.ONE_COLOR,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(3).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
       console.log(animationProps);
 
       const animationMock = {
         filter: 'opacity(0)',
         transition: 'filter 0.700s ease-in',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -174,19 +174,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.MAIN_COLOR,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.MAIN_COLOR,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('gallery-item-image-canvas').at(3).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         filter: 'opacity(0)',
         transition: 'filter 1.100s ease-in',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -196,23 +196,23 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.BLUR,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.BLUR,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('gallery-item-image-canvas').at(3).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         filter: 'opacity(0)',
         transition: 'filter 1.100s ease-in',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
-  })
+  });
 
 
   describe('scrollAnimation - final state', () => {
@@ -221,7 +221,7 @@ describe('styleParam - scrollAnimation', () => {
       container,
       items: [...images2, ...images2],
       styles: styleParams,
-    }
+    };
 
     beforeEach(() => {
       driver = new GalleryDriver();
@@ -232,18 +232,18 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.FADE_IN,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.FADE_IN,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(0).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
       const animationMock = {
         filter: 'opacity(1)',
         transition: 'filter 1.100s ease-in'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -253,18 +253,18 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.GRAYSCALE,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.GRAYSCALE,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(0).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
       const animationMock = {
         filter: 'grayscale(0)',
         transition: 'filter 1.300s ease-in'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -274,19 +274,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.SLIDE_UP,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.SLIDE_UP,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-container').at(0).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         transform: 'translateY(0)',
         transition: 'transform 0.8s cubic-bezier(.13,.78,.53,.92)'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -296,19 +296,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.EXPAND,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.EXPAND,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-container').at(0).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         transform: 'scale(1)',
         transition: 'transform 1s cubic-bezier(.13,.78,.53,.92)'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -318,18 +318,18 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.SHRINK,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.SHRINK,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-container').at(0).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
       const animationMock = {
         transform: 'scale(1)',
         transition: 'transform 1s cubic-bezier(.13,.78,.53,.92)'
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -338,19 +338,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.ZOOM_OUT,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.ZOOM_OUT,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(0).getDOMNode();
       const animationProps = {
         transform: getComputedStyle(item).transform,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         transform: 'scale(1)',
         transition: 'transform 1.2s cubic-bezier(.13,.78,.53,.92)',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -360,20 +360,20 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.ONE_COLOR,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.ONE_COLOR,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('item-wrapper').at(0).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
       console.log(animationProps);
 
       const animationMock = {
         filter: 'opacity(1)',
         transition: 'filter 0.700s ease-in',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -383,19 +383,19 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.MAIN_COLOR,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.MAIN_COLOR,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('gallery-item-image-canvas').at(0).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         filter: 'opacity(1)',
         transition: 'filter 1.100s ease-in',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
@@ -405,21 +405,21 @@ describe('styleParam - scrollAnimation', () => {
         oneRow: false,
         scrollDirection: 0,
         galleryLayout: 2,
-        scrollAnimation: GALLERY_CONSTS.scrollAnimations.BLUR,
+        scrollAnimation: GALLERY_CONSTS.SCROLL_ANIMATIONS.BLUR,
       });
       driver.mount.proGallery(initialProps);
       const item = driver.find.hook('gallery-item-image-canvas').at(0).getDOMNode();
       const animationProps = {
         filter: getComputedStyle(item).filter,
         transition: getComputedStyle(item).transition,
-      }
+      };
 
       const animationMock = {
         filter: 'opacity(1)',
         transition: 'filter 1.100s ease-in',
-      }
+      };
       expect(animationProps).to.deep.equal(animationMock)
       driver.detach.proGallery();
     });
   })
-})
+});

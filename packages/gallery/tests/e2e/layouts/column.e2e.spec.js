@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('column - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -19,8 +19,8 @@ describe('column - e2e', () => {
   });
   it('column - scrollDirection = vertical', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.COLUMN,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.COLUMN,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
@@ -29,13 +29,12 @@ describe('column - e2e', () => {
   });
   it('column - scrollDirection = horizontal', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.COLUMN,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.HORIZONTAL
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.COLUMN,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.HORIZONTAL
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
     const page = await driver.grab.screenshot();
     expect(page).toMatchImageSnapshot();
   });
-  
-})
+});

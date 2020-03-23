@@ -11,7 +11,7 @@ describe('styleParam - textsHorizontalPadding', () => {
     container,
     items: [...images2],
     styles: styleParams,
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,11 +19,11 @@ describe('styleParam - textsHorizontalPadding', () => {
 
   it('should set horizontal padding + 30 when (imageInfoType=SEPARATED_BACKGROUND)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       onRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-      imageInfoType: GALLERY_CONSTS.infoType.SEPARATED_BACKGROUND,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.SEPARATED_BACKGROUND,
       textsHorizontalPadding: 50,
     });
     driver.mount.proGallery(initialProps);
@@ -34,11 +34,11 @@ describe('styleParam - textsHorizontalPadding', () => {
 
   it('should set horizontal padding without any additions when (imageInfoType=ATTACHED_BACKGROUND)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       onRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-      imageInfoType: GALLERY_CONSTS.infoType.ATTACHED_BACKGROUND,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.ATTACHED_BACKGROUND,
       textsHorizontalPadding: 50,
     });
     driver.mount.proGallery(initialProps);
@@ -48,11 +48,11 @@ describe('styleParam - textsHorizontalPadding', () => {
   });
   it('should set horizontal padding + 30 when (imageInfoType=DONT_SHOW)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       onRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-      imageInfoType: GALLERY_CONSTS.infoType.DONT_SHOW,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.DONT_SHOW,
       textsHorizontalPadding: 50,
     });
     driver.mount.proGallery(initialProps);
@@ -62,11 +62,11 @@ describe('styleParam - textsHorizontalPadding', () => {
   });
   it('should set horizontal padding + 30 when (imageInfoType=NO_BACKGROUND)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       onRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-      imageInfoType: GALLERY_CONSTS.infoType.NO_BACKGROUND,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.NO_BACKGROUND,
       textsHorizontalPadding: 50,
     });
     driver.mount.proGallery(initialProps);
@@ -74,4 +74,4 @@ describe('styleParam - textsHorizontalPadding', () => {
     expect(textContainer.props().style.paddingRight).to.eq('50px');
     driver.detach.proGallery();
   });
-})
+});

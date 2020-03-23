@@ -11,20 +11,19 @@ describe('styleParam - galleryThumbnailsAlignment', () => {
     container,
     items: [...images2],
     styles: styleParams,
-  }
-
+  };
   beforeEach(() => {
     driver = new GalleryDriver();
   });
 
   it('should have thumbnails in the bottom of the gallery', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.THUMBNAIL,
-      thumbnailsPosition: GALLERY_CONSTS.thumbnailsAlignment.BOTTOM,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
+      thumbnailsPosition: GALLERY_CONSTS.THUMBNAILS_ALIGNMENT.BOTTOM,
     });
     // driver.mount.proGallery(initialProps);
     // const textContainer = driver.find.selector('.gallery-item-bottom-info').at(0);
     // expect(textContainer.props().style.paddingTop).to.eq('65px');
     // driver.detach.proGallery();
   });
-})
+});

@@ -699,7 +699,7 @@ function getFontLineHeight(font) {
 
 function isSlideshowFont(styles) {
   const galleryLayout = styles.galleryLayout;
-  if (galleryLayout === GALLERY_CONSTS.layout.SLIDESHOW) {
+  if (galleryLayout === GALLERY_CONSTS.LAYOUTS.SLIDESHOW) {
     return true;
   }
   if (

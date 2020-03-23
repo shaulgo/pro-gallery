@@ -7,10 +7,10 @@ export default {
   isRelevant: (styleParams) => (styleParams.isVertical &&
     styleParams.groupSize === 1 &&
     !styleParams.oneRow) &&
-    (styleParams.titlePlacement === GALLERY_CONSTS.placements.SHOW_ABOVE ||
-      styleParams.titlePlacement === GALLERY_CONSTS.placements.SHOW_BELOW) &&
+    (styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_ABOVE ||
+      styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW) &&
     (styleParams.allowTitle || styleParams.allowDescription),
   type: INPUT_TYPES.OPTIONS,
-  options: createOptions('textBoxHeightCalculationOptions'),
-  default: GALLERY_CONSTS.textBoxHeightCalculationOptions.AUTOMATIC,
+  options: createOptions('TEXT_BOX_HEIGHT_CALCULATION_OPTIONS'),
+  default: GALLERY_CONSTS.TEXT_BOX_HEIGHT_CALCULATION_OPTIONS.AUTOMATIC,
 }

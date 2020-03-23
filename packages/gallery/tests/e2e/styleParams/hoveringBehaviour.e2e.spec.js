@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import { GALLERY_CONSTS } from '../../../src/settings/utils/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('hoveringBehaviour - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -21,10 +21,10 @@ describe('hoveringBehaviour - e2e', () => {
     await driver.openPage({
       galleryLayout: 2,
       allowTitle: true,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.APPEARS
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.APPEARS
     });
     await driver.waitFor.hookToBeVisible('item-container');
-    await driver.actions.hover('item-container')[0]
+    await driver.actions.hover('item-container')[0];
     await driver.waitFor.timer(200);
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
@@ -33,10 +33,10 @@ describe('hoveringBehaviour - e2e', () => {
     await driver.openPage({
       galleryLayout: 2,
       allowTitle: true,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.DISAPPEARS
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.DISAPPEARS
     });
     await driver.waitFor.hookToBeVisible('item-container');
-    await driver.actions.hover('item-container')[0]
+    await driver.actions.hover('item-container')[0];
     await driver.waitFor.timer(200);
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
@@ -45,12 +45,12 @@ describe('hoveringBehaviour - e2e', () => {
     await driver.openPage({
       galleryLayout: 2,
       allowTitle: true,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.NO_CHANGE
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.NO_CHANGE
     });
     await driver.waitFor.hookToBeVisible('item-container');
-    await driver.actions.hover('item-container')[0]
+    await driver.actions.hover('item-container')[0];
     await driver.waitFor.timer(200);
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

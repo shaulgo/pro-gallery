@@ -11,7 +11,7 @@ describe('styleParam - thumbnailSpacings', () => {
     container,
     items: images2,
     styles: styleParams,
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,7 +19,7 @@ describe('styleParam - thumbnailSpacings', () => {
 
   it('should set "thumbnailSpacing" of "10"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.THUMBNAIL,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
       thumbnailSpacings: 10,
     });
     driver.mount.proGallery(initialProps);
@@ -29,7 +29,7 @@ describe('styleParam - thumbnailSpacings', () => {
   });
   it('should set "thumbnailSpacing" of "30"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.THUMBNAIL,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
       thumbnailSpacings: 30,
     });
     driver.mount.proGallery(initialProps);
@@ -37,4 +37,4 @@ describe('styleParam - thumbnailSpacings', () => {
     expect(item.props().style.margin).to.eq(30);
     driver.detach.proGallery();
   });
-})
+});

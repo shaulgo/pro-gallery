@@ -10,16 +10,16 @@ describe('styleParam - scrollSnap', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
   beforeEach(() => {
     driver = new GalleryDriver();
   });
   it('should set class "scroll-snap"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.EMPTY,
       scrollSnap:true,
       oneRow:true,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#gallery-horizontal-scroll');
     expect(galleryContainer.hasClass('scroll-snap')).to.be.true;
@@ -28,13 +28,13 @@ describe('styleParam - scrollSnap', () => {
 
   it('should not set class "scroll-snap"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.EMPTY,
       scrollSnap:false,
       oneRow:true,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#gallery-horizontal-scroll');
     expect(galleryContainer.hasClass('scroll-snap')).to.be.false;
     driver.detach.proGallery();
   });
-})
+});

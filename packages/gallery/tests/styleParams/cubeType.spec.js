@@ -11,7 +11,7 @@ describe('styleParam - cubeType', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -21,8 +21,8 @@ describe('styleParam - cubeType', () => {
     Object.assign(initialProps.styles, {
       galleryLayout: -1,
       cubeImages:true,
-      cubeType: GALLERY_CONSTS.cubeType.FIT
-    })
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.FIT
+    });
     driver.mount.proGallery(initialProps)
     const items = driver.find.selector('.cube-type-fit');
     expect(items.length).to.be.greaterThan(0)
@@ -32,8 +32,8 @@ describe('styleParam - cubeType', () => {
     Object.assign(initialProps.styles, {
       galleryLayout: -1,
       cubeImages:true,
-      cubeType: GALLERY_CONSTS.cubeType.CROP
-    })
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.CROP
+    });
     driver.mount.proGallery(initialProps)
     const items = driver.find.selector('.cube-type-fill');
     expect(items.length).to.be.greaterThan(0)
@@ -43,8 +43,8 @@ describe('styleParam - cubeType', () => {
     Object.assign(initialProps.styles, {
       galleryLayout: -1,
       cubeImages:true,
-      cubeType: GALLERY_CONSTS.cubeType.FIT
-    })
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.FIT
+    });
     driver.mount.proGallery(initialProps)
     const items = driver.find.selector('.grid-fit');
     expect(items.length).to.be.greaterThan(0)
@@ -55,8 +55,8 @@ describe('styleParam - cubeType', () => {
     Object.assign(initialProps.styles, {
       galleryLayout: -1,
       cubeImages:true,
-      cubeType: GALLERY_CONSTS.cubeType.CROP
-    })
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.CROP
+    });
     driver.mount.proGallery(initialProps)
     const textItem = driver.find.hook('item-wrapper').at(0);
     const { backgroundColor } = textItem.props().style;
@@ -68,13 +68,13 @@ describe('styleParam - cubeType', () => {
     Object.assign(initialProps.styles, {
       galleryLayout: -1,
       cubeImages:true,
-      cubeType: GALLERY_CONSTS.cubeType.FIT
-    })
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.FIT
+    });
     driver.mount.proGallery(initialProps)
     const textItem = driver.find.hook('item-wrapper').at(0);
     const { backgroundColor } = textItem.props().style;
     expect(backgroundColor).to.eq('inherit');
     driver.detach.proGallery();
   });
-})
+});
 

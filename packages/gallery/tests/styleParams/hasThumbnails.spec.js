@@ -11,7 +11,7 @@ describe('styleParam - hasThumbnails', () => {
     container,
     items: [...images2],
     styles: styleParams,
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,10 +19,10 @@ describe('styleParam - hasThumbnails', () => {
 
   it('should render thumbnails element when "hasThumbnails" and "oneRow" are "true"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       onRow: true,
       hasThumbnails: true,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.HORIZONTAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.HORIZONTAL,
     });
     driver.mount.proGallery(initialProps);
     const thumbnails = driver.find.hook('gallery-thumbnails');
@@ -31,10 +31,10 @@ describe('styleParam - hasThumbnails', () => {
   });
   it('should not render thumbnails element when "hasThumbnails" is "true" and oneRow is "false"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       onRow: false,
       hasThumbnails: true,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
     });
     driver.mount.proGallery(initialProps);
     const thumbnails = driver.find.hook('gallery-thumbnails');
@@ -43,14 +43,14 @@ describe('styleParam - hasThumbnails', () => {
   });
   it('should not render thumbnails element when "hasThumbnails" is "false"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       onRow: true,
       hasThumbnails: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.HORIZONTAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.HORIZONTAL,
     });
     driver.mount.proGallery(initialProps);
     const thumbnails = driver.find.hook('gallery-thumbnails');
     expect(thumbnails).to.have.lengthOf(0);
     driver.detach.proGallery();
   });
-})
+});

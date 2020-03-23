@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('groupSize - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -19,7 +19,7 @@ describe('groupSize - e2e', () => {
   });
   it('should have max group size of 3 (groupSize=3)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       collageDensity: 0.8,
       groupSize: 3,
     });
@@ -30,7 +30,7 @@ describe('groupSize - e2e', () => {
   });
   it('should have max group size of 1 (groupSize=1)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       collageDensity: 0.8,
       groupSize: 1,
     });
@@ -41,7 +41,7 @@ describe('groupSize - e2e', () => {
   });
   it('should have groups of 1 item (restricted by collageDensity)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       collageDensity: 0,
       groupSize: 3,
     });
@@ -52,7 +52,7 @@ describe('groupSize - e2e', () => {
   });
   it('should have groups of 1 item (restricted by groupsPerStrip)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       groupsPerStrip: 1,
       groupSize: 3,
     });
@@ -61,4 +61,4 @@ describe('groupSize - e2e', () => {
     //expect to have groups of 1 despite groupSize = 3 (because of collageDensity)
     expect(page).toMatchImageSnapshot();
   });
-})
+});

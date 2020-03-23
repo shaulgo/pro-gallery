@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('textsVerticalPadding - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -19,11 +19,11 @@ describe('textsVerticalPadding - e2e', () => {
   });
   it('should set vertical padding for texts (text below item)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
       textsVerticalPadding: 15,
       allowTitle: true,
       allowDescription: true,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     const page = await driver.grab.elemScreenshot('.pro-gallery');
@@ -31,14 +31,14 @@ describe('textsVerticalPadding - e2e', () => {
   });
   it('should set vertical padding for texts (text above item)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
       textsVerticalPadding: 50,
       allowTitle: true,
       allowDescription: true,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_ABOVE,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_ABOVE,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     const page = await driver.grab.elemScreenshot('.pro-gallery');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

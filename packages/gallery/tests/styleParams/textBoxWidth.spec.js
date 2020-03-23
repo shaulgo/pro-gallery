@@ -11,7 +11,7 @@ describe('styleParam - textBoxWidth', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,14 +19,14 @@ describe('styleParam - textBoxWidth', () => {
 
   it('should set "textBoxWidth" of "250"(manual)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_ON_THE_RIGHT,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_ON_THE_RIGHT,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
       allowTitle: true,
-      calculateTextBoxWidthMode: GALLERY_CONSTS.textBoxWidthCalculationOptions.MANUAL,
+      calculateTextBoxWidthMode: GALLERY_CONSTS.TEXT_BOX_WIDTH_CALCULATION_OPTIONS.MANUAL,
       textBoxWidth: 250,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const textBox = driver.find.selector('.gallery-item-common-info').at(0);
     console.log(textBox.props().style.width);
@@ -34,4 +34,4 @@ describe('styleParam - textBoxWidth', () => {
     expect(width).to.eq(250);
     driver.detach.proGallery();
   });
-})
+});

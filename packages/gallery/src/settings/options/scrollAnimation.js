@@ -5,7 +5,7 @@ export default {
   title: 'Scroll Animation',
   description: `Choose the type of animation to be used when items appear while scrolling verticaly through the gallery`,
   isRelevant: (styleParams) => !styleParams.oneRow,
-  options: createOptions('scrollAnimations'),
+  options: createOptions('SCROLL_ANIMATIONS'),
   type: INPUT_TYPES.OPTIONS,
-  default: GALLERY_CONSTS.scrollAnimations.NO_EFFECT,
+  default: GALLERY_CONSTS.SCROLL_ANIMATIONS.NO_EFFECT,
 }

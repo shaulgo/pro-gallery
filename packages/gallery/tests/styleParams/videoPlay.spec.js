@@ -11,21 +11,21 @@ describe('styleParam - videoPlay', () => {
     container,
     items: videoItems,
     styles: styleParams
-  }
+  };
   beforeEach(() => {
     driver = new GalleryDriver();
   });
 
   it('should play videos automaticaly', () => {
     Object.assign(initialProps.styles, {
-      videoPlay: GALLERY_CONSTS.videoPlay.AUTO,
-      galleyLayout: GALLERY_CONSTS.layout.GRID,
-    })
+      videoPlay: GALLERY_CONSTS.VIDEO_PLAY.AUTO,
+      galleyLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+    });
     driver.mount.proGallery(initialProps);
     const galleryVideoItems = driver.find.hook('video_container-video-player-element');
     expect(galleryVideoItems.length).to.be.greaterThan(0);
     driver.detach.proGallery();
-  })
+  });
 
   describe('VideoPlay - HOVER', () => {
     beforeEach(() => {
@@ -34,9 +34,9 @@ describe('styleParam - videoPlay', () => {
 
     it('should not have video elements intially (with no hover event)', () => {
       Object.assign(initialProps.styles, {
-        videoPlay: GALLERY_CONSTS.videoPlay.HOVER,
-        galleyLayout: GALLERY_CONSTS.layout.GRID,
-      })
+        videoPlay: GALLERY_CONSTS.VIDEO_PLAY.HOVER,
+        galleyLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      });
       driver.mount.proGallery(initialProps);
       const galleryVideoItems = driver.find.hook('video_container-video-player-element');
       expect(galleryVideoItems).to.have.lengthOf(0)
@@ -44,9 +44,9 @@ describe('styleParam - videoPlay', () => {
     });
     it('should have video element on hover', () => {
       Object.assign(initialProps.styles, {
-        videoPlay: GALLERY_CONSTS.videoPlay.HOVER,
-        galleyLayout: GALLERY_CONSTS.layout.GRID,
-      })
+        videoPlay: GALLERY_CONSTS.VIDEO_PLAY.HOVER,
+        galleyLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      });
       driver.mount.proGallery(initialProps);
       const itemContainer = driver.find.hook('item-container').at(0);
       itemContainer.simulate('mouseover');
@@ -54,7 +54,7 @@ describe('styleParam - videoPlay', () => {
       expect(videoItem).to.have.lengthOf(1)
       driver.detach.proGallery();
     });
-  })
+  });
 
   describe('VideoPlay - ONCLICK', () => {
     beforeEach(() => {
@@ -63,9 +63,9 @@ describe('styleParam - videoPlay', () => {
 
     it('should not have video elements intially (with no click event)', () => {
       Object.assign(initialProps.styles, {
-        videoPlay: GALLERY_CONSTS.videoPlay.ON_CLICK,
-        galleyLayout: GALLERY_CONSTS.layout.GRID,
-      })
+        videoPlay: GALLERY_CONSTS.VIDEO_PLAY.ON_CLICK,
+        galleyLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      });
       driver.mount.proGallery(initialProps);
       const galleryVideoItems = driver.find.hook('video_container-video-player-element');
       expect(galleryVideoItems).to.have.lengthOf(0)
@@ -73,10 +73,10 @@ describe('styleParam - videoPlay', () => {
     });
     it('should have video element on click', () => {
       Object.assign(initialProps.styles, {
-        videoPlay: GALLERY_CONSTS.videoPlay.ON_CLICK,
-        galleyLayout: GALLERY_CONSTS.layout.GRID,
-        itemClick: GALLERY_CONSTS.itemClick.NOTHING,
-      })
+        videoPlay: GALLERY_CONSTS.VIDEO_PLAY.ON_CLICK,
+        galleyLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+        itemClick: GALLERY_CONSTS.ITEM_CLICK.NOTHING,
+      });
       driver.mount.proGallery(initialProps);
       const itemContainer = driver.find.hook('item-wrapper').at(0);
       itemContainer.simulate('click');
@@ -85,4 +85,4 @@ describe('styleParam - videoPlay', () => {
       driver.detach.proGallery();
     });
   })
-})
+});

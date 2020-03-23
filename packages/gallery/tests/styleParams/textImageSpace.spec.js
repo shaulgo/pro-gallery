@@ -11,7 +11,7 @@ describe('styleParam - textImageSpace', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,14 +19,14 @@ describe('styleParam - textImageSpace', () => {
 
   it('should set spacing between the image and the texts (texts below items and separated background)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       allowTitle: true,
-      imageInfoType: GALLERY_CONSTS.infoType.SEPARATED_BACKGROUND,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.SEPARATED_BACKGROUND,
       textImageSpace: 20,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-    })
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+    });
     driver.mount.proGallery(initialProps);
     const item = driver.find.selector('.gallery-item-bottom-info').at(0).parent();
     // expect marginTop to equal textImageSpace value.
@@ -35,14 +35,14 @@ describe('styleParam - textImageSpace', () => {
   });
   it('should set spacing between the image and the texts (texts above items and separated background)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_ABOVE,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_ABOVE,
       allowTitle: true,
-      imageInfoType: GALLERY_CONSTS.infoType.SEPARATED_BACKGROUND,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.SEPARATED_BACKGROUND,
       textImageSpace: 20,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-    })
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+    });
     driver.mount.proGallery(initialProps);
     const item = driver.find.selector('.gallery-item-top-info').at(0).parent();
     // expect marginBottom to equal textImageSpace value.
@@ -51,18 +51,18 @@ describe('styleParam - textImageSpace', () => {
   });
   it('should not set when "imageInfoType" is not "SEPARATED_BACKGROUND"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_ABOVE,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_ABOVE,
       allowTitle: true,
-      imageInfoType: GALLERY_CONSTS.infoType.NO_BACKGROUND,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.NO_BACKGROUND,
       textImageSpace: 20,
       oneRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-    })
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+    });
     driver.mount.proGallery(initialProps);
     const item = driver.find.selector('.gallery-item-top-info').at(0).parent();
     // expect marginBottom to be undefined.
     expect(item.props().style.marginBottom).to.eq(undefined);
     driver.detach.proGallery();
   });
-})
+});

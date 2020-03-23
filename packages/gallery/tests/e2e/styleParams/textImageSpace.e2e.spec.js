@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('textImageSpace - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -19,11 +19,11 @@ describe('textImageSpace - e2e', () => {
   });
   it('should set spacing between texts and image (texts below)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       allowTitle: true,
       allowDescription: true,
-      imageInfoType: GALLERY_CONSTS.infoType.SEPARATED_BACKGROUND,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.SEPARATED_BACKGROUND,
       textImageSpace: 40,
     });
     await driver.waitFor.hookToBeVisible('item-container');
@@ -33,11 +33,11 @@ describe('textImageSpace - e2e', () => {
   });
   it('should set spacing between texts and image (texts above)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_ABOVE,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_ABOVE,
       allowTitle: true,
       allowDescription: true,
-      imageInfoType: GALLERY_CONSTS.infoType.SEPARATED_BACKGROUND,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.SEPARATED_BACKGROUND,
       textImageSpace: 40,
     });
     await driver.waitFor.hookToBeVisible('item-container');
@@ -47,11 +47,11 @@ describe('textImageSpace - e2e', () => {
   });
   it('should not set spacing between texts and image (texts above, no separated background)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       allowTitle: true,
       allowDescription: true,
-      imageInfoType: GALLERY_CONSTS.infoType.NO_BACKGROUND,
+      imageInfoType: GALLERY_CONSTS.INFO_TYPE.NO_BACKGROUND,
       textImageSpace: 40,
     });
     await driver.waitFor.hookToBeVisible('item-container');
@@ -59,4 +59,4 @@ describe('textImageSpace - e2e', () => {
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

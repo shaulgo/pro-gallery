@@ -11,7 +11,7 @@ describe('styleParam - isRTL', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,9 +19,9 @@ describe('styleParam - isRTL', () => {
 
   it('should not set "rtl" class to the gallery container', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
-      isRTL: GALLERY_CONSTS.layoutDirection.LEFT_TO_RIGHT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
+      isRTL: GALLERY_CONSTS.LAYOUT_DIRECTION.LEFT_TO_RIGHT,
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     expect(galleryContainer.hasClass('rtl')).to.be.false;
@@ -29,9 +29,9 @@ describe('styleParam - isRTL', () => {
   });
   it('should set "rtl" class to the gallery container', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
-      isRTL: GALLERY_CONSTS.layoutDirection.RIGHT_TO_LEFT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
+      isRTL: GALLERY_CONSTS.LAYOUT_DIRECTION.RIGHT_TO_LEFT,
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     expect(galleryContainer.hasClass('rtl')).to.be.true;
@@ -39,29 +39,29 @@ describe('styleParam - isRTL', () => {
   });
   // it('should start keyboard navigation from left to right', () => {
   //   Object.assign(initialProps.styles, {
-  //     galleryLayout: GALLERY_CONSTS.layout.GRID,
-  //     isRTL: GALLERY_CONSTS.layoutDirection.LEFT_TO_RIGHT,
-  //   })
+  //     galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+  //     isRTL: GALLERY_CONSTS.LAYOUT_DIRECTION.LEFT_TO_RIGHT,
+  //   });
   //   driver.mount.proGallery(initialProps);
   //   const galleryContainer = driver.find.selector('#pro-gallery-container');
   //   const stub = sinon.stub(driver.wrapper.instance());
   //   galleryContainer.getDOMNode().focus();
   //   galleryContainer.simulate('keydown', {key: 'Tab',keyCode: 9, which: 9});
   //   console.log(galleryContainer.is(':focus'));
-    
+
   //   // driver.wrapper.simulate('keydown', {key: 'Tab',keyCode: 9, which: 9});
   //   // galleryContainer.simulate('keydown', {key: 'Tab',keyCode: 9, which: 9});
   //   console.log(document.activeElement.tagName);
-    
+
   //   expect()
   //   driver.detach.proGallery();
   // });
 
   it('should set "rtl" class in slideShowView', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
-      isRTL: GALLERY_CONSTS.layoutDirection.RIGHT_TO_LEFT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
+      isRTL: GALLERY_CONSTS.LAYOUT_DIRECTION.RIGHT_TO_LEFT,
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     expect(galleryContainer.hasClass('rtl')).to.be.true;
@@ -70,9 +70,9 @@ describe('styleParam - isRTL', () => {
 
   it('should not set "rtl" class in slideShowView', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
-      isRTL: GALLERY_CONSTS.layoutDirection.RIGHT_TO_LEFT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
+      isRTL: GALLERY_CONSTS.LAYOUT_DIRECTION.RIGHT_TO_LEFT,
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     expect(galleryContainer.hasClass('rtl')).to.be.true;
@@ -80,9 +80,9 @@ describe('styleParam - isRTL', () => {
   });
   it('should not set direction "rtl" in texts element', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
-      isRTL: GALLERY_CONSTS.layoutDirection.LEFT_TO_RIGHT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
+      isRTL: GALLERY_CONSTS.LAYOUT_DIRECTION.LEFT_TO_RIGHT,
+    });
     driver.mount.proGallery(initialProps);
     const textsElement = driver.find.selector('.gallery-item-text').at(0);
     expect(textsElement.props().style.direction).to.eq(undefined);
@@ -90,13 +90,12 @@ describe('styleParam - isRTL', () => {
   });
   it('should set direction "rtl" in texts element', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
-      isRTL: GALLERY_CONSTS.layoutDirection.RIGHT_TO_LEFT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
+      isRTL: GALLERY_CONSTS.LAYOUT_DIRECTION.RIGHT_TO_LEFT,
+    });
     driver.mount.proGallery(initialProps);
     const textsElement = driver.find.selector('.gallery-item-text').at(0);
     expect(textsElement.props().style.direction).to.eq('rtl');
     driver.detach.proGallery();
   });
-  
-})
+});

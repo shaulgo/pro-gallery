@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import GALLERY_CONSTS from '../../../src/common/constants';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('chooseBestGroup - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -20,7 +20,7 @@ describe('chooseBestGroup - e2e', () => {
 
   it('should choose best group', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.COLLAGE,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.COLLAGE,
       chooseBestGroup: true,
     });
     await driver.waitFor.hookToBeVisible('item-container');
@@ -30,7 +30,7 @@ describe('chooseBestGroup - e2e', () => {
   });
   it('should not choose best group', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.COLLAGE,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.COLLAGE,
       chooseBestGroup: false,
     });
     await driver.waitFor.hookToBeVisible('item-container');
@@ -38,4 +38,4 @@ describe('chooseBestGroup - e2e', () => {
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

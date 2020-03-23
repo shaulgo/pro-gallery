@@ -2,13 +2,13 @@ import GalleryDriver from '../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../drivers/matchers';
 import GALLERY_CONSTS from '../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('texts - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -23,8 +23,8 @@ describe('texts - e2e', () => {
       loveButton: true,
       allowTitle: true,
       allowDescription: true,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.NO_CHANGE,
-      galleryVerticalAlign: GALLERY_CONSTS.verticalAlign.CENTER,
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.NO_CHANGE,
+      galleryVerticalAlign: GALLERY_CONSTS.VERTICAL_ALIGN.CENTER,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
@@ -37,12 +37,12 @@ describe('texts - e2e', () => {
       loveButton: true,
       allowDescription: true,
       allowTitle: true,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.NO_CHANGE,
-      galleryVerticalAlign: GALLERY_CONSTS.verticalAlign.CENTER,
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.NO_CHANGE,
+      galleryVerticalAlign: GALLERY_CONSTS.VERTICAL_ALIGN.CENTER,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
     const page = await driver.grab.elemScreenshot('.pro-gallery');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

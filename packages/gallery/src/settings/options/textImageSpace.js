@@ -1,11 +1,11 @@
 import { GALLERY_CONSTS, INPUT_TYPES } from '../utils/constants';
 
-const {SHOW_ABOVE,SHOW_BELOW} = GALLERY_CONSTS.placements;
+const {SHOW_ABOVE,SHOW_BELOW} = GALLERY_CONSTS.PLACEMENTS;
 
 export default {
   title: 'Text Space From Image',
   isRelevant: (styleParams)  => (styleParams.allowTitle || styleParams.allowDescription) &&
-  styleParams.imageInfoType === GALLERY_CONSTS.infoType.SEPARATED_BACKGROUND &&
+  styleParams.imageInfoType === GALLERY_CONSTS.INFO_TYPE.SEPARATED_BACKGROUND &&
   [SHOW_ABOVE,SHOW_BELOW].indexOf(styleParams.titlePlacement) > -1 ,
   type: INPUT_TYPES.NUMBER,
   default: 10,

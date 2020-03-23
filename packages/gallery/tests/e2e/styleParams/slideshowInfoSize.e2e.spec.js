@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import GALLERY_CONSTS from '../../../src/common/constants';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('slideshowInfoSize - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -20,7 +20,7 @@ describe('slideshowInfoSize - e2e', () => {
 
   it('should set "slideshowInfoSize"(400)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
       allowTitle: true,
       slideshowInfoSize:400,
     });
@@ -31,7 +31,7 @@ describe('slideshowInfoSize - e2e', () => {
   });
   it('should set "slideshowInfoSize"(250)', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
       allowTitle: true,
       slideshowInfoSize:250,
     });
@@ -40,4 +40,4 @@ describe('slideshowInfoSize - e2e', () => {
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

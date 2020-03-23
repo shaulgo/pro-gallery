@@ -11,7 +11,7 @@ describe('styleParam - enableScroll', () => {
     container,
     items: images2,
     styles: styleParams,
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,7 +19,7 @@ describe('styleParam - enableScroll', () => {
 
   it('should set class "slider" when "enableScroll" is "true"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       oneRow: true,
       scrollDirection:1,
       enableScroll: true,
@@ -31,15 +31,14 @@ describe('styleParam - enableScroll', () => {
   });
   it('should not set class "slider" when "enableScroll" is "false"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       oneRow: true,
       scrollDirection:1,
       enableScroll: false,
     });
-    
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     expect(galleryContainer.hasClass('slider')).to.be.false;
     driver.detach.proGallery();
   });
-})
+});

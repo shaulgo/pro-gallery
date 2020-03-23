@@ -22,7 +22,7 @@ export default {
 
   galleryLayout: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('layout')
+    options: createOptions('LAYOUTS')
   },
   slideshowLoop: {
     type: INPUT_TYPES.BOOLEAN,
@@ -70,18 +70,18 @@ export default {
   },
   titlePlacement: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('placements')
+    options: createOptions('PLACEMENTS')
   },
   hoveringBehaviour: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('infoBehaviourOnHover')
+    options: createOptions('INFO_BEHAVIOUR_ON_HOVER')
   },
   cubeImages: {
     type: INPUT_TYPES.BOOLEAN,
   },
   cubeType: {
     type: INPUT_TYPES.OPTIONS,
-    options: [{ value: GALLERY_CONSTS.cubeType.CROP, title: "Crop" }, { value: GALLERY_CONSTS.cubeType.FIT, title: "Fit" }],
+    options: [{ value: GALLERY_CONSTS.IMAGE_RESIZE.CROP, title: "Crop" }, { value: GALLERY_CONSTS.IMAGE_RESIZE.FIT, title: "Fit" }],
     alert: " this sets cubeType, cubeImages -> check proGalleryStyleBuilder",
   },
   cubeRatio: {
@@ -100,7 +100,7 @@ export default {
   },
   galleryThumbnailsAlignment: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('thumbnailsAlignment')
+    options: createOptions('THUMBNAILS_ALIGNMENT')
   },
   thumbnailSize: {
     type: INPUT_TYPES.NUMBER,
@@ -160,12 +160,12 @@ export default {
   groupTypes: {
     type: INPUT_TYPES.MULTISELECT,
     repeat: false,
-    options: createOptions('groupTypes')
+    options: createOptions('GROUP_TYPES')
   },
   rotatingGroupTypes: {
     type: INPUT_TYPES.MULTISELECT,
     repeat: true,
-    options: createOptions('groupTypes')
+    options: createOptions('GROUP_TYPES')
   },
   thumbnailSpacings: {
     type: INPUT_TYPES.NUMBER,
@@ -203,14 +203,14 @@ export default {
   },
   loadMoreAmount: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('loadMoreAmount')
-  }, 
+    options: createOptions('LOAD_MORE_AMOUNT')
+  },
   //----------| SETTINGS SECTION |---------//
   scrollSnap: {
     type: INPUT_TYPES.BOOLEAN,
   },
   itemClick: {
-    options: createOptions('itemClick')
+    options: createOptions('ITEM_CLICK')
   },
   watermarkOpacity: {
     type: INPUT_TYPES.NUMBER,
@@ -228,7 +228,7 @@ export default {
   },
   watermarkDock: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('watermarkDock'),
+    options: createOptions('WATERMARK_DOCK'),
     alert: 'now is being saved in "appSettings"',
   },
   allowDownload: {
@@ -274,11 +274,11 @@ export default {
   },
   overlayAnimation:  {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('overlayAnimations')
+    options: createOptions('OVERLAY_ANIMATIONS')
   },
   imageHoverAnimation: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('imageHoverAnimations')
+    options: createOptions('IMAGE_HOVER_ANIMATIONS')
   },
   itemFont: {
     type: INPUT_TYPES.FONT_PICKER,
@@ -311,14 +311,14 @@ export default {
     type: INPUT_TYPES.COLOR_PICKER,
     alert: 'implement!',
   },
-  galleryHorizontalAlign: { // ALSO sets galleryTextAlign --- 
+  galleryHorizontalAlign: { // ALSO sets galleryTextAlign ---
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('horizontalAlign'),
+    options: createOptions('HORIZONTAL_ALIGN'),
     alert: '"galleryTextAlign" should be set accordingly',
   },
   galleryVerticalAlign: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('verticalAlign')
+    options: createOptions('VERTICAL_ALIGN')
   },
   textBoxFillColor: {
     type: INPUT_TYPES.COLOR_PICKER,
@@ -326,11 +326,11 @@ export default {
   },
   calculateTextBoxHeightMode: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('textBoxHeightCalculationOptions')
+    options: createOptions('TEXT_BOX_HEIGHT_CALCULATION_OPTIONS')
   },
   calculateTextBoxWidthMode: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('textBoxWidthCalculationOptions')
+    options: createOptions('TEXT_BOX_WIDTH_CALCULATION_OPTIONS')
   },
   textBoxHeight: {
     type: INPUT_TYPES.NUMBER,
@@ -443,7 +443,7 @@ export default {
   loadMoreButtonBorderColor: {
     type: INPUT_TYPES.COLOR_PICKER,
     alert: 'implement!',
-  }, 
+  },
   loadMoreButtonBorderRadius: {
     type: INPUT_TYPES.NUMBER,
     min: 0,
@@ -451,7 +451,7 @@ export default {
   },
   imageInfoType: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('infoType')
+    options: createOptions('INFO_TYPE')
   },
   itemBorderWidth: {
     type: INPUT_TYPES.NUMBER,
@@ -496,7 +496,7 @@ export default {
   },
   imageLoadingMode: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('loadingMode')
+    options: createOptions('LOADING_MODE')
   },
   imageLoadingColor: {
     type: INPUT_TYPES.COLOR_PICKER,
@@ -504,11 +504,11 @@ export default {
   },
   expandAnimation: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('expandAnimations')
+    options: createOptions('EXPAND_ANIMATIONS')
   },
   scrollAnimation: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('scrollAnimations')
+    options: createOptions('SCROLL_ANIMATIONS')
   },
   oneColorAnimationColor: {
     type: INPUT_TYPES.COLOR_PICKER,
@@ -580,7 +580,7 @@ export default {
   addToCartBackColorExpand: {
     type: INPUT_TYPES.COLOR_PICKER,
     alert: 'implement!',
-  }, 
+  },
   addToCartFontExpand: {
     type: INPUT_TYPES.FONT_PICKER,
     alert: 'implement',
@@ -639,7 +639,7 @@ export default {
   },
   videoPlay: {
     type: INPUT_TYPES.OPTIONS,
-    options: createOptions('videoPlay')
+    options: createOptions('VIDEO_PLAY')
   },
   videoSound: {
     type: INPUT_TYPES.BOOLEAN,
@@ -660,15 +660,15 @@ export default {
   }
 };
 
-// store and mobile 
+// store and mobile
 // cubeRatio: { -- It's defined in styleBuilder
 // parseStyleParams - for expand mode need to investigate file - sets lots of other params.SECTIONS.EXPAND_MODE
 // second parameter in proGalleryStyleBuilder - 'scrollDirection', 'oneRow'
-// Maybe to add the default to this interface ? 
-// cubeRatio didnt 
+// Maybe to add the default to this interface ?
+// cubeRatio didnt
 // is store
-// is mobile 
-// check expand conditions 
+// is mobile
+// check expand conditions
 // decity should have precents - precents conversion
 
 // defined in wixers!?

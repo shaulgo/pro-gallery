@@ -10,17 +10,17 @@ describe('styleParam - titleDescriptionSpace', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
   beforeEach(() => {
     driver = new GalleryDriver();
   });
   it('should create sapcing between the title and the description', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.grid,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.grid,
       titleDescriptionSpace: 10,
       allowTitle:true,
       allowDescription:true,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const thumbnailItem = driver.find.selector('.gallery-item-title').at(0);
     const { marginBottom } = thumbnailItem.props().style;
@@ -29,16 +29,16 @@ describe('styleParam - titleDescriptionSpace', () => {
   });
   it('should not create sapcing between when there is no description', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.grid,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.grid,
       titleDescriptionSpace: 10,
       allowTitle:true,
       allowDescription:false,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const thumbnailItem = driver.find.selector('.gallery-item-title').at(0);
     const { marginBottom } = thumbnailItem.props().style;
     expect(marginBottom).to.eq(0);
     driver.detach.proGallery();
   });
-})
+});
 

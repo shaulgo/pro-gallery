@@ -6,9 +6,9 @@ export default {
   isRelevant: (styleParams) => (styleParams.isVertical &&
     styleParams.groupSize === 1 &&
     !styleParams.oneRow) &&
-    (styleParams.titlePlacement === GALLERY_CONSTS.placements.SHOW_ABOVE ||
-      styleParams.titlePlacement === GALLERY_CONSTS.placements.SHOW_BELOW) &&
-    styleParams.calculateTextBoxHeightMode === GALLERY_CONSTS.textBoxHeightCalculationOptions.MANUAL &&
+    (styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_ABOVE ||
+      styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW) &&
+    styleParams.calculateTextBoxHeightMode === GALLERY_CONSTS.TEXT_BOX_HEIGHT_CALCULATION_OPTIONS.MANUAL &&
     (styleParams.allowTitle || styleParams.allowDescription),
   type: INPUT_TYPES.NUMBER,
   default: 200,

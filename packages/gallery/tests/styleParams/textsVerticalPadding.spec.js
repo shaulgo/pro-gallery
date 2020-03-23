@@ -11,7 +11,7 @@ describe('styleParam - textsVerticalPadding', () => {
     container,
     items: [...images2],
     styles: styleParams,
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,10 +19,10 @@ describe('styleParam - textsVerticalPadding', () => {
 
   it('should set vertical padding + 15 when (titlePlacement=SHOW_BELOW)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_BELOW,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_BELOW,
       onRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
       textsVerticalPadding: 50,
     });
     driver.mount.proGallery(initialProps);
@@ -33,10 +33,10 @@ describe('styleParam - textsVerticalPadding', () => {
 
   it('should set vertical padding + 15 when (titlePlacement=ABOVE)', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      titlePlacement: GALLERY_CONSTS.placements.SHOW_ABOVE,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      titlePlacement: GALLERY_CONSTS.PLACEMENTS.SHOW_ABOVE,
       onRow: false,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
       textsVerticalPadding: 50,
     });
     driver.mount.proGallery(initialProps);
@@ -44,4 +44,4 @@ describe('styleParam - textsVerticalPadding', () => {
     expect(textContainer.props().style.paddingTop).to.eq('65px');
     driver.detach.proGallery();
   });
-})
+});

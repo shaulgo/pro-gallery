@@ -5,7 +5,7 @@ export default {
   title: 'Playing Options',
   description: `Choose when video items will start playing: On hover, on click or autoplay`,
   isRelevant: (styleParams) => true,
-  options: createOptions('videoPlay'),
+  options: createOptions('VIDEO_PLAY'),
   type: INPUT_TYPES.OPTIONS,
-  default: GALLERY_CONSTS.videoPlay.HOVER,
+  default: GALLERY_CONSTS.VIDEO_PLAY.HOVER,
 }

@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import GALLERY_CONSTS from '../../../src/common/constants';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('itemBorder - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -20,7 +20,7 @@ describe('itemBorder - e2e', () => {
 
   it('should have border-width=10, border-radius=10', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
       itemBorderWidth: 10,
       itemBorderRadius: 10,
     });
@@ -32,7 +32,7 @@ describe('itemBorder - e2e', () => {
 
   it('should have border-width=40, border-radius=40', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
       itemBorderWidth: 40,
       itemBorderRadius: 40,
     });
@@ -44,8 +44,8 @@ describe('itemBorder - e2e', () => {
 
   it('should not have any border style when "cubeType" is "FIT"', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      cubeType: GALLERY_CONSTS.cubeType.FIT,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.FIT,
       itemBorderWidth: 40,
       itemBorderRadius: 40,
     });
@@ -54,4 +54,4 @@ describe('itemBorder - e2e', () => {
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

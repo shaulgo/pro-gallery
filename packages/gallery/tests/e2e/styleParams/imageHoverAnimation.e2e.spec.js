@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('imageHoverAnimation - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -18,12 +18,12 @@ describe('imageHoverAnimation - e2e', () => {
     driver.closeBrowser();
   });
 
-  Object.values(GALLERY_CONSTS.imageHoverAnimations).forEach( animationType => {
+  Object.values(GALLERY_CONSTS.IMAGE_HOVER_ANIMATIONS).forEach( animationType => {
     it(`should have "${animationType}" animation`, async () => {
       await driver.openPage({
-        galleryLayout: GALLERY_CONSTS.layout.THUMBNAIL,
+        galleryLayout: GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
         imageHoverAnimation: animationType,
-        hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW
+        hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.NEVER_SHOW
       });
       await driver.waitFor.hookToBeVisible('item-container');
       await driver.actions.hover('item-container')[0];
@@ -32,4 +32,4 @@ describe('imageHoverAnimation - e2e', () => {
       expect(page).toMatchImageSnapshot();
     });
   })
-})
+});

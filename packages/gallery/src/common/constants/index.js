@@ -1,63 +1,78 @@
-import events from './events';
-import placements from './placements';
-import infoBehaviourOnHover from './infoBehaviourOnHover';
-import scrollAnimations from './scrollAnimations';
-import infoType from './infoType';
-import loadingMode from './loadingMode';
-import textBoxHeightCalculationOptions from './textBoxHeightCalculationOptions';
-import textBoxWidthCalculationOptions from './textBoxWidthCalculationOptions';
-import overlayAnimations from './overlayAnimations';
-import imageHoverAnimations from './imageHoverAnimations';
-import layout from './layout';
-import cubeType from './cubeType';
-import itemClick from './itemClick';
-import scrollDirection from './scrollDirection';
-import thumbnailsAlignment from './thumbnailsAlignment';
-import watermarkDock from './watermarkDock';
-import loadMoreAmount from './loadMoreAmount';
-import expandAnimations from './expandAnimations';
-import horizontalAlign from './horizontalAlign';
-import verticalAlign from './verticalAlign';
-import videoPlay from './videoPlay';
-import groupTypes from './groupTypes';
-import mobileSwipeAnimations from './mobileSwipeAnimations';
-import expandInfoPositions from './expandInfoPositions';
-import dimensions from './dimensions';
-import gallerySizeType from './gallerySizeType';
-import isVertical from './isVertical';
-import galleryTextAlign from './galleryTextAlign.js';
-import gridStyle from './gridStyle';
-import layoutDirection from './layoutDirection';
+import IMAGE_RESIZE from './cubeType';
+import DIMENSIONS from './dimensions';
+import EVENTS from './events';
+import EXPAND_ANIMATIONS from './expandAnimations';
+import EXPAND_INFO_POSITIONS from './expandInfoPositions';
+import FORM_FACTOR from './formFactor';
+import GALLERY_SIZE_TYPE from './gallerySizeType';
+import GALLERY_TEXT_ALIGN from './galleryTextAlign.js';
+import GRID_STYLE from './gridStyle';
+import GROUP_TYPES from './groupTypes';
+import HORIZONTAL_ALIGN from './horizontalAlign';
+import IMAGE_HOVER_ANIMATIONS from './imageHoverAnimations';
+import INFO_BEHAVIOUR_ON_HOVER from './infoBehaviourOnHover';
+import INFO_TYPE from './infoType';
+import IS_VERTICAL from './isVertical';
+import ITEM_CLICK from './itemClick';
+import LAYOUTS from './layout';
+import LAYOUT_DIRECTION from './layoutDirection';
+import LAZY_LOAD from './lazyLoad';
+import LOADING_MODE from './loadingMode';
+import LOADING_WITH_COLOR_MODE from './loadingWithColorMode';
+import LOAD_MORE_AMOUNT from './loadMoreAmount';
+import MOBILE_SWIPE_ANIMATIONS from './mobileSwipeAnimations';
+import OVERLAY_ANIMATIONS from './overlayAnimations';
+import PLACEMENTS from './placements';
+import RESIZE_METHOD from './resizeMethods';
+import SCROLL_ANIMATIONS from './scrollAnimations';
+import SCROLL_DIRECTION from './scrollDirection';
+import SOCIAL_NETWORKS from './socialNetworks';
+import TEXT_BOX_HEIGHT_CALCULATION_OPTIONS from './textBoxHeightCalculationOptions';
+import TEXT_BOX_WIDTH_CALCULATION_OPTIONS from './textBoxWidthCalculationOptions';
+import THUMBNAILS_ALIGNMENT from './thumbnailsAlignment';
+import { URL_SIZES, URL_TYPES } from './urlTypes';
+import VERTICAL_ALIGN from './verticalAlign';
+import VIDEO_PLAY from './videoPlay';
+import VIEW_MODE from './viewMode';
+import WATERMARK_DOCK from './watermarkDock';
 
 export default {
-  events,
-  placements,
-  infoBehaviourOnHover,
-  scrollAnimations,
-  infoType,
-  loadingMode,
-  layout,
-  itemClick,
-  textBoxHeightCalculationOptions,
-  textBoxWidthCalculationOptions,
-  scrollDirection,
-  cubeType,
-  thumbnailsAlignment,
-  watermarkDock,
-  loadMoreAmount,
-  expandAnimations,
-  overlayAnimations,
-  imageHoverAnimations,
-  horizontalAlign,
-  verticalAlign,
-  videoPlay,
-  groupTypes,
-  mobileSwipeAnimations,
-  expandInfoPositions,
-  dimensions,
-  gallerySizeType,
-  isVertical,
-  galleryTextAlign,
-  gridStyle,
-  layoutDirection,
+  IMAGE_RESIZE,
+  DIMENSIONS,
+  EVENTS,
+  EXPAND_ANIMATIONS,
+  EXPAND_INFO_POSITIONS,
+  FORM_FACTOR,
+  GALLERY_SIZE_TYPE,
+  GALLERY_TEXT_ALIGN,
+  GRID_STYLE,
+  GROUP_TYPES,
+  HORIZONTAL_ALIGN,
+  IMAGE_HOVER_ANIMATIONS,
+  INFO_BEHAVIOUR_ON_HOVER,
+  INFO_TYPE,
+  IS_VERTICAL,
+  ITEM_CLICK,
+  LAYOUTS,
+  LAYOUT_DIRECTION,
+  LAZY_LOAD,
+  LOADING_MODE,
+  LOADING_WITH_COLOR_MODE,
+  LOAD_MORE_AMOUNT,
+  MOBILE_SWIPE_ANIMATIONS,
+  OVERLAY_ANIMATIONS,
+  PLACEMENTS,
+  RESIZE_METHOD,
+  SCROLL_ANIMATIONS,
+  SCROLL_DIRECTION,
+  SOCIAL_NETWORKS,
+  TEXT_BOX_HEIGHT_CALCULATION_OPTIONS,
+  TEXT_BOX_WIDTH_CALCULATION_OPTIONS,
+  THUMBNAILS_ALIGNMENT,
+  URL_SIZES,
+  URL_TYPES,
+  VERTICAL_ALIGN,
+  VIDEO_PLAY,
+  VIEW_MODE,
+  WATERMARK_DOCK,
 };

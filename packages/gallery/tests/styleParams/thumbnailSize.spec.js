@@ -10,15 +10,15 @@ describe('styleParam - thumbnailSize', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
   beforeEach(() => {
     driver = new GalleryDriver();
   });
   it('should "thumbnailSize" of "300"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.THUMBNAIL,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
       thumbnailSize: 300,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const thumbnailItem = driver.find.selector('.thumbnailItem').at(0);
     const { height } = thumbnailItem.props().style;
@@ -27,9 +27,9 @@ describe('styleParam - thumbnailSize', () => {
   });
   it('should "thumbnailSize" of "150"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.THUMBNAIL,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
       thumbnailSize: 150,
-    })
+    });
     driver.mount.proGallery(initialProps);
     const thumbnailItem = driver.find.selector('.thumbnailItem').at(0);
     const { height } = thumbnailItem.props().style;
@@ -38,11 +38,11 @@ describe('styleParam - thumbnailSize', () => {
   });
   it('should set the gallery height for thumbnailSize=300', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.THUMBNAIL,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
       thumbnailSize: 300,
       thumbnailSpacings: 10,
       galleryThumbnailsAlignment: 'bottom',
-    })
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     const { height } = galleryContainer.props().style;
@@ -53,11 +53,11 @@ describe('styleParam - thumbnailSize', () => {
 
   it('should set the gallery width for thumbnailSize=300', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout:  GALLERY_CONSTS.layout.THUMBNAIL,
+      galleryLayout:  GALLERY_CONSTS.LAYOUTS.THUMBNAIL,
       thumbnailSize: 300,
       thumbnailSpacings: 10,
       galleryThumbnailsAlignment: 'left',
-    })
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     const { width } = galleryContainer.props().style;
@@ -65,5 +65,5 @@ describe('styleParam - thumbnailSize', () => {
     expect(initialProps.container.width - 300 - 3*10).to.eq(width);
     driver.detach.proGallery();
   });
-})
+});
 

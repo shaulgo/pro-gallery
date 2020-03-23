@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import GALLERY_CONSTS from '../../../src/common/constants';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('smartCrop - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -20,11 +20,11 @@ describe('smartCrop - e2e', () => {
 
   it('should crop according to original image ratio', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       smartCrop: true,
       cubeImages: true,
       cubeRatio: 2,
-      cubeType: GALLERY_CONSTS.cubeType.CROP,
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.CROP,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
@@ -33,15 +33,15 @@ describe('smartCrop - e2e', () => {
   });
   it('should not use smart crop', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       smartCrop: false,
       cubeImages: true,
       cubeRatio: 2,
-      cubeType: GALLERY_CONSTS.cubeType.CROP,
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.CROP,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
     const page = await driver.grab.elemScreenshot('#pro-gallery-container');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

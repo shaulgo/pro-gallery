@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('hasThumbnails - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -19,7 +19,7 @@ describe('hasThumbnails - e2e', () => {
   });
   it('should not have thumbnails when "hasThumbnails" is "false" and gallery is horizontal scroll', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       hasThumbnails: false,
       oneRow:true,
     });
@@ -30,7 +30,7 @@ describe('hasThumbnails - e2e', () => {
   });
   it('should not have thumbnails when "hasThumbnails" is "true" and gallery is vertical scroll', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       hasThumbnails: false,
     });
     await driver.waitFor.hookToBeVisible('item-container');
@@ -40,7 +40,7 @@ describe('hasThumbnails - e2e', () => {
   });
   it('should have thumbnails when "hasThumbnails" is "true" and gallery is horizontal scroll', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
       hasThumbnails: true,
       oneRow:true,
     });
@@ -49,4 +49,4 @@ describe('hasThumbnails - e2e', () => {
     const page = await driver.grab.elemScreenshot('.pro-gallery');
     expect(page).toMatchImageSnapshot();
   });
-})
+});

@@ -11,7 +11,7 @@ describe('styleParam - overlayAnimation', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,9 +19,9 @@ describe('styleParam - overlayAnimation', () => {
 
   it('should have overlay animation class - "EXPAND"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      overlayAnimation: GALLERY_CONSTS.overlayAnimations.EXPAND,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      overlayAnimation: GALLERY_CONSTS.OVERLAY_ANIMATIONS.EXPAND,
+    });
     driver.mount.proGallery(initialProps);
     const items = driver.find.selector('.hover-animation-expand');
     expect(items.length).to.be.greaterThan(0);
@@ -29,9 +29,9 @@ describe('styleParam - overlayAnimation', () => {
   });
   it('should have overlay animation class - "FADE IN"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      overlayAnimation: GALLERY_CONSTS.overlayAnimations.FADE_IN,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      overlayAnimation: GALLERY_CONSTS.OVERLAY_ANIMATIONS.FADE_IN,
+    });
     driver.mount.proGallery(initialProps);
     const items = driver.find.selector('.hover-animation-fade-in');
     expect(items.length).to.be.greaterThan(0);
@@ -39,9 +39,9 @@ describe('styleParam - overlayAnimation', () => {
   });
   it('should have overlay animation class - "SLIDE UP"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      overlayAnimation: GALLERY_CONSTS.overlayAnimations.SLIDE_UP,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      overlayAnimation: GALLERY_CONSTS.OVERLAY_ANIMATIONS.SLIDE_UP,
+    });
     driver.mount.proGallery(initialProps);
     const items = driver.find.selector('.hover-animation-slide-up');
     expect(items.length).to.be.greaterThan(0);
@@ -49,13 +49,12 @@ describe('styleParam - overlayAnimation', () => {
   });
   it('should have overlay animation class - "SLIDE RIGHT"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      overlayAnimation: GALLERY_CONSTS.overlayAnimations.SLIDE_RIGHT,
-    })
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      overlayAnimation: GALLERY_CONSTS.OVERLAY_ANIMATIONS.SLIDE_RIGHT,
+    });
     driver.mount.proGallery(initialProps);
     const items = driver.find.selector('.hover-animation-slide-right');
     expect(items.length).to.be.greaterThan(0);
     driver.detach.proGallery();
   });
-  
-})
+});

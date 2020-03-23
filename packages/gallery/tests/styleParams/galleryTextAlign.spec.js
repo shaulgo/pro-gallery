@@ -11,7 +11,7 @@ describe('styleParam - galleryTextAlign', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -23,10 +23,10 @@ describe('styleParam - galleryTextAlign', () => {
       oneRow:false,
       allowTitle: true,
       allowDescription: true,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.NO_CHANGE,
-      galleryTextAlign: GALLERY_CONSTS.galleryTextAlign.LEFT,
-    })
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.NO_CHANGE,
+      galleryTextAlign: GALLERY_CONSTS.GALLERY_TEXT_ALIGN.LEFT,
+    });
     driver.mount.proGallery(initialProps);
     const textsContainer = driver.find.selector('.gallery-item-text').at(0);
     const { textAlign } = textsContainer.props().style
@@ -39,10 +39,10 @@ describe('styleParam - galleryTextAlign', () => {
       oneRow:false,
       allowTitle: true,
       allowDescription: true,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.NO_CHANGE,
-      galleryTextAlign: GALLERY_CONSTS.galleryTextAlign.RIGHT,
-    })
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.NO_CHANGE,
+      galleryTextAlign: GALLERY_CONSTS.GALLERY_TEXT_ALIGN.RIGHT,
+    });
     driver.mount.proGallery(initialProps);
     const textsContainer = driver.find.selector('.gallery-item-text').at(0);
     const { textAlign } = textsContainer.props().style
@@ -55,14 +55,14 @@ describe('styleParam - galleryTextAlign', () => {
       oneRow:false,
       allowTitle: true,
       allowDescription: true,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
-      hoveringBehaviour: GALLERY_CONSTS.infoBehaviourOnHover.NO_CHANGE,
-      galleryTextAlign: GALLERY_CONSTS.galleryTextAlign.CENTER,
-    })
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      hoveringBehaviour: GALLERY_CONSTS.INFO_BEHAVIOUR_ON_HOVER.NO_CHANGE,
+      galleryTextAlign: GALLERY_CONSTS.GALLERY_TEXT_ALIGN.CENTER,
+    });
     driver.mount.proGallery(initialProps);
     const textsContainer = driver.find.selector('.gallery-item-text').at(0);
     const { textAlign } = textsContainer.props().style
     expect(textAlign).to.eq('center');
     driver.detach.proGallery();
   });
-})
+});
