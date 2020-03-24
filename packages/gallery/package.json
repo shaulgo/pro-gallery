@@ -2,6 +2,7 @@
   "publishScoped": false,
   "private": false,
   "name": "pro-gallery",
+  "sideEffects": false,
   "version": "1.8.5",
   "author": {
     "name": "Guy Sopher",
@@ -83,7 +84,7 @@
   },
   "yoshi": {
     "entry": {
-      "main": "./index"
+      "main": "./index.js"
     },
     "servers": {
       "cdn": {
