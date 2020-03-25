@@ -8,11 +8,10 @@ import ExpandableProGallery from './components/gallery/presets/expandableGallery
 import GALLERY_CONSTS from './common/constants';
 
 export {
-  ProGallery,
-  ExpandableProGallery,
-  GALLERY_CONSTS,
-  LoveButton,
-  GalleryItem,
-  gallerySettings
+    ProGallery,
+    ExpandableProGallery,
+    GALLERY_CONSTS,
+    LoveButton,
+    GalleryItem,
+    gallerySettings
 };
-
