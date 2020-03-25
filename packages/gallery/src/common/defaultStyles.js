@@ -33,7 +33,7 @@ export default {
     placeGroupsLtr: false,
     viewMode: 'preview',
     oneRow: false,
-    showArrows: false,
+    showArrows: true,
     enableInfiniteScroll: true,
     thumbnailSpacings: 4,
     galleryThumbnailsAlignment: GALLERY_CONSTS.THUMBNAILS_ALIGNMENT.BOTTOM,

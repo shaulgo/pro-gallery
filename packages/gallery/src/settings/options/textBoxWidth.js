@@ -6,7 +6,6 @@ export default {
   isRelevant: (styleParams) => (styleParams.isVertical &&
     styleParams.groupSize === 1 &&
     !styleParams.oneRow) &&
-    styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.MANUAL &&
     styleParams.calculateTextBoxWidthMode === GALLERY_CONSTS.TEXT_BOX_WIDTH_CALCULATION_OPTIONS.MANUAL &&
     (styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_ON_THE_LEFT ||
       styleParams.titlePlacement === GALLERY_CONSTS.PLACEMENTS.SHOW_ON_THE_RIGHT) &&

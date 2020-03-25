@@ -20,7 +20,8 @@ describe('slider - e2e', () => {
   it('slider - scrollDirection = vertical', async () => {
     await driver.openPage({
       galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDER,
-      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
+      cubeRatio: 16/9,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);
@@ -30,7 +31,8 @@ describe('slider - e2e', () => {
   it('slider - scrollDirection = horizontal', async () => {
     await driver.openPage({
       galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDER,
-      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.HORIZONTAL
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.HORIZONTAL,
+      cubeRatio: 16/9,
     });
     await driver.waitFor.hookToBeVisible('item-container');
     await driver.waitFor.timer(200);

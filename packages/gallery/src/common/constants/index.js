@@ -1,3 +1,4 @@
+import ARROWS_POSITION from './arrowsPosition';
 import IMAGE_RESIZE from './cubeType';
 import DIMENSIONS from './dimensions';
 import EVENTS from './events';
@@ -37,6 +38,7 @@ import VIEW_MODE from './viewMode';
 import WATERMARK_DOCK from './watermarkDock';
 
 export default {
+  ARROWS_POSITION,
   IMAGE_RESIZE,
   DIMENSIONS,
   EVENTS,
