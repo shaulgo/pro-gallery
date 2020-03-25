@@ -15,7 +15,7 @@ import s from './App.module.scss';
 
 const pJson = require('../../../package.json');
 
-const GALLERY_EVENTS = GALLERY_CONSTS.events;
+const GALLERY_EVENTS = GALLERY_CONSTS.EVENTS;
 
 const initialItems = {
   mixed: mixAndSlice(testItems, ITEMS_BATCH_SIZE),

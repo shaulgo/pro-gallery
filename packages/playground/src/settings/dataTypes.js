@@ -81,7 +81,7 @@ export default {
   },
   cubeType: {
     type: INPUT_TYPES.OPTIONS,
-    options: [{ value: GALLERY_CONSTS.cubeType.CROP, title: "Crop" }, { value: GALLERY_CONSTS.cubeType.FIT, title: "Fit" }],
+    options: [{ value: GALLERY_CONSTS.IMAGE_RESIZE.CROP, title: "Crop" }, { value: GALLERY_CONSTS.IMAGE_RESIZE.FIT, title: "Fit" }],
     alert: " this sets cubeType, cubeImages -> check proGalleryStyleBuilder",
   },
   cubeRatio: {

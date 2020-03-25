@@ -50,21 +50,21 @@ export default {
       { value: 0, title: "Vertical" },
       { value: 1, title: "Horizontal" }
     ],
-    isRelevant: sp => [GALLERY_CONSTS.layout.EMPTY, GALLERY_CONSTS.layout.COLLAGE, GALLERY_CONSTS.layout.GRID].indexOf(sp.galleryLayout) > -1,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.EMPTY, GALLERY_CONSTS.LAYOUTS.COLLAGE, GALLERY_CONSTS.LAYOUTS.GRID].indexOf(sp.galleryLayout) > -1,
   },
   isVertical: {
     title: "Image Orientation",
     description: "",
     type: INPUT_TYPES.OPTIONS,
     options: [{ value: false, title: "Rows" }, { value: true, title: "Columns" }],
-    isRelevant: sp => [GALLERY_CONSTS.layout.COLLAGE, GALLERY_CONSTS.layout.MASONRY].indexOf(sp.galleryLayout) > -1,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.COLLAGE, GALLERY_CONSTS.LAYOUTS.MASONRY].indexOf(sp.galleryLayout) > -1,
   },
   isRTL: {
     title: "Layout Direction",
     description: "",
     type: INPUT_TYPES.OPTIONS,
     options: [{ value: false, title: "Left to Right" }, { value: true, title: "Right to Left" }],
-    isRelevant: sp => [GALLERY_CONSTS.layout.PANORAMA].indexOf(sp.galleryLayout) === -1,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.PANORAMA].indexOf(sp.galleryLayout) === -1,
   },
   cubeImages: {
     title: "Allow Crop",
@@ -76,7 +76,7 @@ export default {
     title: "Thumbnail Resize",
     description: "",
     type: INPUT_TYPES.OPTIONS,
-    options: [{ value: GALLERY_CONSTS.cubeType.CROP, title: "Crop" }, { value: GALLERY_CONSTS.cubeType.FIT, title: "Fit" }],
+    options: [{ value: GALLERY_CONSTS.IMAGE_RESIZE.CROP, title: "Crop" }, { value: GALLERY_CONSTS.IMAGE_RESIZE.FIT, title: "Fit" }],
     isRelevant: showThumbnailResize,
   },
   cubeRatio: {
@@ -90,7 +90,7 @@ export default {
       { value: 3 / 4, title: "3:4" },
       { value: 9 / 16, title: "9:16" }
     ],
-    isRelevant: sp => [GALLERY_CONSTS.layout.EMPTY, GALLERY_CONSTS.layout.GRID, GALLERY_CONSTS.layout.SLIDER].indexOf(sp.galleryLayout) > -1 && sp.cubeType === GALLERY_CONSTS.cubeType.crop,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.EMPTY, GALLERY_CONSTS.LAYOUTS.GRID, GALLERY_CONSTS.LAYOUTS.SLIDER].indexOf(sp.galleryLayout) > -1 && sp.cubeType === GALLERY_CONSTS.IMAGE_RESIZE.crop,
   },
   gallerySliderImageRatio: {
     title: "Image Ratio - Slider",
@@ -103,7 +103,7 @@ export default {
       { value: 3 / 4, title: "3:4" },
       { value: 9 / 16, title: "9:16" }
     ],
-    isRelevant: sp => sp.galleryLayout === GALLERY_CONSTS.layout.SLIDER && sp.cubeType === GALLERY_CONSTS.cubeType.crop,
+    isRelevant: sp => sp.galleryLayout === GALLERY_CONSTS.LAYOUTS.SLIDER && sp.cubeType === GALLERY_CONSTS.IMAGE_RESIZE.crop,
     todo: 'remove this param, merge it in the wrapper'
   },
   galleryThumbnailsAlignment: {
@@ -111,12 +111,12 @@ export default {
     description: "",
     type: INPUT_TYPES.OPTIONS,
     options: [
-      { value: GALLERY_CONSTS.thumbnailsAlignment.BOTTOM, title: "Bottom" },
-      { value: GALLERY_CONSTS.thumbnailsAlignment.LEFT, title: "Left" },
-      { value: GALLERY_CONSTS.thumbnailsAlignment.TOP, title: "Top" },
-      { value: GALLERY_CONSTS.thumbnailsAlignment.RIGHT, title: "Right" }
+      { value: GALLERY_CONSTS.THUMBNAILS_ALIGNMENT.BOTTOM, title: "Bottom" },
+      { value: GALLERY_CONSTS.THUMBNAILS_ALIGNMENT.LEFT, title: "Left" },
+      { value: GALLERY_CONSTS.THUMBNAILS_ALIGNMENT.TOP, title: "Top" },
+      { value: GALLERY_CONSTS.THUMBNAILS_ALIGNMENT.RIGHT, title: "Right" }
     ],
-    isRelevant: sp => [GALLERY_CONSTS.layout.THUMBNAIL].indexOf(sp.galleryLayout) >= 0,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.THUMBNAIL].indexOf(sp.galleryLayout) >= 0,
   },
   thumbnailSize: {
     title: "Thumbnail Size",
@@ -124,7 +124,7 @@ export default {
     type: INPUT_TYPES.NUMBER,
     min: 80,
     max: 300,
-    isRelevant: sp => [GALLERY_CONSTS.layout.THUMBNAIL].indexOf(sp.galleryLayout) >= 0,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.THUMBNAIL].indexOf(sp.galleryLayout) >= 0,
   },
   gridStyle: {
     title: "Grid Style",
@@ -134,7 +134,7 @@ export default {
       { value: 0, title: "Fit To Screen" },
       { value: 1, title: "Set Items Per Row" }
     ],
-    isRelevant: sp => ((sp.galleryLayout === GALLERY_CONSTS.layout.GRID || sp.galleryLayout === GALLERY_CONSTS.layout.COLLAGE) && !oneRow(sp)),
+    isRelevant: sp => ((sp.galleryLayout === GALLERY_CONSTS.LAYOUTS.GRID || sp.galleryLayout === GALLERY_CONSTS.LAYOUTS.COLLAGE) && !oneRow(sp)),
   },
   numberOfImagesPerRow: {
     title: "Images Per Row",
@@ -142,7 +142,7 @@ export default {
     type: INPUT_TYPES.NUMBER,
     min: 1,
     max: 5,
-    isRelevant: sp => ((sp.galleryLayout === GALLERY_CONSTS.layout.GRID || sp.galleryLayout === GALLERY_CONSTS.layout.COLLAGE) && !oneRow(sp)) && sp.gridStyle === 1,
+    isRelevant: sp => ((sp.galleryLayout === GALLERY_CONSTS.LAYOUTS.GRID || sp.galleryLayout === GALLERY_CONSTS.LAYOUTS.COLLAGE) && !oneRow(sp)) && sp.gridStyle === 1,
   },
   numberOfImagesPerCol: {
     title: "Images Per Column",
@@ -150,7 +150,7 @@ export default {
     type: INPUT_TYPES.NUMBER,
     min: 1,
     max: 3,
-    isRelevant: sp => [GALLERY_CONSTS.layout.GRID].indexOf(sp.galleryLayout) >= 0 && (sp.galleryLayout === GALLERY_CONSTS.layout.COLLAGE && !oneRow(sp)),
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.GRID].indexOf(sp.galleryLayout) >= 0 && (sp.galleryLayout === GALLERY_CONSTS.LAYOUTS.COLLAGE && !oneRow(sp)),
   },
   thumbnailSpacings: {
     title: "Spacing between Thumbnails",
@@ -159,7 +159,7 @@ export default {
     min: 0,
     max: 30,
     units: "px",
-    isRelevant: sp => [GALLERY_CONSTS.layout.EMPTY, GALLERY_CONSTS.layout.THUMBNAIL].indexOf(sp.galleryLayout) > -1,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.EMPTY, GALLERY_CONSTS.LAYOUTS.THUMBNAIL].indexOf(sp.galleryLayout) > -1,
   },
   imageMargin: {
     title: "Spacing between Items",
@@ -168,7 +168,7 @@ export default {
     min: 0,
     max: 500,
     units: "px",
-    isRelevant: sp => [GALLERY_CONSTS.layout.EMPTY, GALLERY_CONSTS.layout.COLLAGE, GALLERY_CONSTS.layout.MASONRY, GALLERY_CONSTS.layout.GRID, GALLERY_CONSTS.layout.SLIDER, GALLERY_CONSTS.layout.PANORAMA, GALLERY_CONSTS.layout.COLUMN, GALLERY_CONSTS.layout.BRICKS, GALLERY_CONSTS.layout.MIX, GALLERY_CONSTS.layout.ALTERNATE].indexOf(sp.galleryLayout) > -1,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.EMPTY, GALLERY_CONSTS.LAYOUTS.COLLAGE, GALLERY_CONSTS.LAYOUTS.MASONRY, GALLERY_CONSTS.LAYOUTS.GRID, GALLERY_CONSTS.LAYOUTS.SLIDER, GALLERY_CONSTS.LAYOUTS.PANORAMA, GALLERY_CONSTS.LAYOUTS.COLUMN, GALLERY_CONSTS.LAYOUTS.BRICKS, GALLERY_CONSTS.LAYOUTS.MIX, GALLERY_CONSTS.LAYOUTS.ALTERNATE].indexOf(sp.galleryLayout) > -1,
   },
   collageDensity: {
     title: "Collage Density",
@@ -178,6 +178,6 @@ export default {
     max: 100,
     step: 10,
     units: "%",
-    isRelevant: sp => [GALLERY_CONSTS.layout.EMPTY, GALLERY_CONSTS.layout.COLLAGE].indexOf(sp.galleryLayout) >= 0,
+    isRelevant: sp => [GALLERY_CONSTS.LAYOUTS.EMPTY, GALLERY_CONSTS.LAYOUTS.COLLAGE].indexOf(sp.galleryLayout) >= 0,
   },
 }
