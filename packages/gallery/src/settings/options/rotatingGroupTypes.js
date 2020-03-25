@@ -7,6 +7,6 @@ export default {
   the groupSize must support the groups specified (if groupSize set to 2, you cannot use groups of 3)`,
   isRelevant: (styleParams) => styleParams.groupSize > 1,
   type: INPUT_TYPES.MULTISELECT,
-  options: createOptions('groupTypes'),
+  options: createOptions('GROUP_TYPES'),
   default: '',
 }

@@ -11,7 +11,7 @@ describe('styleParam - arrowsPosition', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,11 +19,11 @@ describe('styleParam - arrowsPosition', () => {
 
   it('should calculate gallery width accroding to "arrowsPosition" ("OUTSIDE_GALLERY")', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
-      arrowsPosition: GALLERY_CONSTS.arrowsPosition.OUTSIDE_GALLERY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
+      arrowsPosition: GALLERY_CONSTS.ARROWS_POSITION.OUTSIDE_GALLERY,
       arrowsSize: 40,
       imageMargin:0, // fixed in slideshow
-    })
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     const { width } = galleryContainer.props().style;
@@ -33,11 +33,11 @@ describe('styleParam - arrowsPosition', () => {
   });
   it('should have original container width (arrowsPosition = "OUTSIDE_GALLERY")', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.SLIDESHOW,
-      arrowsPosition: GALLERY_CONSTS.arrowsPosition.ON_GALLERY,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.SLIDESHOW,
+      arrowsPosition: GALLERY_CONSTS.ARROWS_POSITION.ON_GALLERY,
       arrowsSize: 40,
       imageMargin:0, // fixed in slideshow
-    })
+    });
     driver.mount.proGallery(initialProps);
     const galleryContainer = driver.find.selector('#pro-gallery-container');
     const { width } = galleryContainer.props().style;
@@ -45,4 +45,4 @@ describe('styleParam - arrowsPosition', () => {
     expect(width).to.eq(initialProps.container.width);
     driver.detach.proGallery();
   });
-})
+});

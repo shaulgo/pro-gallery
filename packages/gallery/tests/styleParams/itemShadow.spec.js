@@ -11,7 +11,7 @@ describe('styleParam - overlayAnimation', () => {
     container,
     items: images2,
     styles: styleParams
-  }
+  };
 
   beforeEach(() => {
     driver = new GalleryDriver();
@@ -19,15 +19,15 @@ describe('styleParam - overlayAnimation', () => {
 
   it('should have box shadow when "itemEnableShadow" is "true"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
       oneRow:false,
       itemShadowBlur: 20,
       itemShadowSize: 10,
       itemShadowDirection: 135,
       itemShadowOpacityAndColor: { value: 'rgba(0,0,0,.4)' },
       itemEnableShadow: true
-    })
+    });
     driver.mount.proGallery(initialProps);
     const item = driver.find.hook('item-container').at(0);
     const {boxShadow} = item.props().style;
@@ -37,15 +37,15 @@ describe('styleParam - overlayAnimation', () => {
   });
   it('should not have box shadow when "itemEnableShadow" is "false"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
       oneRow:false,
       itemShadowBlur: 20,
       itemShadowSize: 10,
       itemShadowDirection: 135,
       itemShadowOpacityAndColor: { value: 'rgba(0,0,0,.4)' },
       itemEnableShadow: false
-    })
+    });
     driver.mount.proGallery(initialProps);
     const item = driver.find.hook('item-container').at(0);
     const {boxShadow} = item.props().style;
@@ -54,15 +54,15 @@ describe('styleParam - overlayAnimation', () => {
   });
   it('should not have box shadow in a "oneRow" gallery', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.HORIZONTAL,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.HORIZONTAL,
       oneRow:true,
       itemShadowBlur: 20,
       itemShadowSize: 10,
       itemShadowDirection: 135,
       itemShadowOpacityAndColor: { value: 'rgba(0,0,0,.4)' },
       itemEnableShadow: true
-    })
+    });
     driver.mount.proGallery(initialProps);
     const item = driver.find.hook('item-container').at(0);
     const {boxShadow} = item.props().style;
@@ -72,19 +72,19 @@ describe('styleParam - overlayAnimation', () => {
 
   it('should set the right "galleryMargin"', () => {
     Object.assign(initialProps.styles, {
-      galleryLayout: GALLERY_CONSTS.layout.GRID,
-      scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.GRID,
+      scrollDirection: GALLERY_CONSTS.SCROLL_DIRECTION.VERTICAL,
       oneRow:false,
       itemShadowBlur: 20,
       itemShadowSize: 10,
       itemShadowDirection: 135,
       itemShadowOpacityAndColor: { value: 'rgba(0,0,0,.4)' },
       itemEnableShadow: true
-    })
+    });
     driver.mount.proGallery(initialProps);
     const item = driver.find.selector('#pro-gallery-margin-container');
     const {margin} = item.props().style;
     expect(margin).to.equal('30px');
     driver.detach.proGallery();
   });
-})
+});

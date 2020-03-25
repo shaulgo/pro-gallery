@@ -2,13 +2,13 @@ import GalleryDriver from '../../drivers/pptrDriver';
 import {toMatchImageSnapshot} from '../../drivers/matchers';
 import GALLERY_CONSTS from '../../../src/common/constants';
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 expect.extend({ toMatchImageSnapshot });
 
 describe('cropOnlyFill - e2e', () => {
   let driver;
-  
+
   beforeEach(async () => {
     driver = new GalleryDriver();
     await driver.launchBrowser();
@@ -19,8 +19,8 @@ describe('cropOnlyFill - e2e', () => {
   });
   it('should crop images', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
-      cubeType: GALLERY_CONSTS.cubeType.FIT,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.FIT,
       cubeImages: true,
       cropOnlyFill: false,
     });
@@ -30,8 +30,8 @@ describe('cropOnlyFill - e2e', () => {
   });
   it('should not crop images', async () => {
     await driver.openPage({
-      galleryLayout: GALLERY_CONSTS.layout.EMPTY,
-      cubeType: GALLERY_CONSTS.cubeType.FIT,
+      galleryLayout: GALLERY_CONSTS.LAYOUTS.EMPTY,
+      cubeType: GALLERY_CONSTS.IMAGE_RESIZE.FIT,
       cubeImages: true,
       cropOnlyFill: true,
     });
@@ -39,4 +39,4 @@ describe('cropOnlyFill - e2e', () => {
     const page = await driver.grab.elemScreenshot('.pro-gallery');
     expect(page).toMatchImageSnapshot();
   });
-})
+});
