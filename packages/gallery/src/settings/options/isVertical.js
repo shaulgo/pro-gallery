@@ -6,7 +6,7 @@ export default {
   description: `Choose between a vertical to horizontal oriented gallery. Note that this option may affect
   other (e.g: "titlePlacement" - you will not be able to change this option when "isVertical" is "false")`,
   isRelevant: (styleParams) => !styleParams.oneRow,
-  options: createOptions('isVertical'),
+  options: createOptions('IS_VERTICAL'),
   type: INPUT_TYPES.OPTIONS,
   default: false,
 }
