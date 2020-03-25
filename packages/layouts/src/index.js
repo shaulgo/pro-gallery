@@ -1,4 +1,11 @@
-export { default as Layouter} from './layouter';
-export { Item } from './item';
-export { Group } from './group';
-export { default as createLayout } from './create-layout';
+import Layouter from './layouter';
+import { Item } from './item';
+import { Group } from './group';
+import createLayout from './create-layout';
+
+module.exports = {
+  Layouter,
+  Group,
+  Item,
+  createLayout,
+};

@@ -1,7 +1,6 @@
 {
   "private": false,
   "name": "pro-layouts",
-  "sideEffects": false,
   "version": "1.8.4",
   "author": {
     "name": "Guy Sopher",
@@ -9,7 +8,6 @@
     "url": ""
   },
   "main": "dist/src/index.js",
-  "module": "dist/es/src/index.js",
   "files": [
     "dist"
   ],
@@ -42,9 +40,6 @@
     ]
   },
   "yoshi": {
-    "entry": {
-      "main": "./index.js"
-    },
     "servers": {
       "cdn": {
         "port": 4662
