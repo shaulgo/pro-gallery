@@ -13,7 +13,7 @@ const LAYOUTS = {
   BRICKS: 10,
   MIX: 11,
   ALTERNATE: 12,
-
+  PROFULLSCREEN: 13,
 };
 
 export default LAYOUTS;

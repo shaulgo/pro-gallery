@@ -14,6 +14,8 @@ import { fixedStyles as slider, createStyles as sliderStyles} from './sliderGall
 import { fixedStyles as slideshow, createStyles as slideshowStyles} from './slideshowGallery';
 import { fixedStyles as thumbnails, createStyles as thumbnailsStyles} from './thumbnailGallery';
 import { fixedStyles as empty, createStyles as emptyStyles} from './emptyGallery';
+import { fixedStyles as proFullscreen, createStyles as sproFullscreenStyles} from '../fullscreen/proFullscreen';
+
 
 
 export const addPresetStyles = styles => {
@@ -44,6 +46,8 @@ export const addPresetStyles = styles => {
           return alternateStyles(styles);
       case LAYOUTS.EMPTY:
           return emptyStyles(styles);
+      case LAYOUTS.PROFULLSCREEN:
+          return sproFullscreenStyles(styles);
       case LAYOUTS.COLLAGE:
       default:
           return collageStyles(styles);
@@ -64,7 +68,8 @@ export const addPresetStyles = styles => {
     slider,
     slideshow,
     thumbnails,
-    empty
+    empty,
+    proFullscreen
   };
   
   

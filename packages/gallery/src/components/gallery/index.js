@@ -64,6 +64,9 @@ export default class BaseGallery extends React.Component {
         case LAYOUTS.EMPTY:
           GalleryComponent = PRESETS.EmptyGallery;
           break;
+        case LAYOUTS.PROFULLSCREEN:
+          GalleryComponent = PRESETS.ProFullscreen;
+          break;
         case LAYOUTS.COLLAGE:
         default:
           GalleryComponent = PRESETS.CollageGallery;

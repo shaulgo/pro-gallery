@@ -12,6 +12,7 @@ import BricksGallery from './bricksGallery';
 import MixGallery from './mixGallery';
 import AlternateGallery from './alternateGallery';
 import EmptyGallery from './emptyGallery';
+import ProFullscreen from '../fullscreen/proFullscreen';
 
 export const PRESETS = {
     CollageGallery,
@@ -28,4 +29,5 @@ export const PRESETS = {
     MixGallery,
     AlternateGallery,
     EmptyGallery,
+    ProFullscreen
 }
