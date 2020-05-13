@@ -44,6 +44,7 @@ class ItemView extends GalleryComponent {
       retries: 0,
       showShare: false,
       isCurrentHover: false,
+      itemWasHovered: false 
     };
 
     this.activeElement = '';
@@ -151,18 +152,18 @@ class ItemView extends GalleryComponent {
     this.props.actions.eventsListener(EVENTS.ITEM_ACTION_TRIGGERED, this.props, e);
   }
 
-  
+
 
   onItemWrapperClick(e) {
     const clickTarget = 'item-media';
     this.onItemClick(e,clickTarget);
   }
-  
+
   onItemInfoClick(e) {
     const clickTarget = 'item-info';
     this.onItemClick(e,clickTarget);
   }
-  
+
   onItemClick(e,clickTarget) {
     if (utils.isFunction(utils.get(window, 'galleryWixCodeApi.onItemClicked'))) {
       window.galleryWixCodeApi.onItemClicked(this.props); //TODO remove after OOI is fully integrated
@@ -276,7 +277,7 @@ class ItemView extends GalleryComponent {
   }
 
   isVerticalContainer() {
-    return this.props.style.width < this.props.style.height + 1;
+    return this.props.style.width < this.props.style.height + 3; //at least in Grid, sometimes not all the columns are the same width (x), and a column can contain items that have height x and width x+1, so increased to 3.
   }
 
   shouldShowHoverOnMobile() {
@@ -322,13 +323,17 @@ class ItemView extends GalleryComponent {
 
   shouldHover() { //see if this could be decided in the preset
     const { styleParams } = this.props;
-
-    if (styleParams.hoveringBehaviour === INFO_BEHAVIOUR_ON_HOVER.NEVER_SHOW) {
+    const { alwaysShowHover, previewHover, hoveringBehaviour } = styleParams;
+    const { NEVER_SHOW, APPEARS } = INFO_BEHAVIOUR_ON_HOVER;
+    
+    if (hoveringBehaviour === NEVER_SHOW) {
       return false;
-    } else if (styleParams.alwaysShowHover === true) {
+    } else if (alwaysShowHover === true) {
       return true;
-    } else if (isEditMode() && styleParams.previewHover) {
+    } else if (isEditMode() && previewHover) {
       return true;
+    } else if (!this.state.itemWasHovered && hoveringBehaviour === APPEARS) {
+      return false;
     } else if (utils.isMobile()) {
       return this.shouldShowHoverOnMobile();
     } else {
@@ -1031,7 +1036,8 @@ class ItemView extends GalleryComponent {
     if (e.domId === this.props.domId) {
       if (!this.state.isCurrentHover && e.currentHoverIdx === this.props.idx) {
         this.setState({
-          isCurrentHover: true
+          isCurrentHover: true,
+          itemWasHovered: true
         })
       } else if (this.state.isCurrentHover && e.currentHoverIdx !== this.props.idx) {
         this.setState({

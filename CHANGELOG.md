@@ -1,3 +1,21 @@
+## [v1.10.11](https://pro-gallery-1-10-11.surge.sh) (11/05/2020)
+ 
+#### GALLERY
+ - Small fix for square items (isVertical)
+ - Hover css prep for info-elements -> if an element inside the external info will have 'info-member' className, hover effects will affect it as well.
+
+---
+## [v1.10.10](https://pro-gallery-1-10-10.surge.sh) (07/05/2020)
+ 
+#### GALLERY
+ -  Fix (leanGallery): use props eventsListener
+ -  Improve (index): export leanGallery and isEligible
+ -  Feat (videoItem): loaded videos will no longer have a poster background. background was visible when video AR was different from the item's
+
+#### OTHER
+ - Merge branch 'master' of github.com:wix/pro-gallery
+
+---
 ## [v1.10.9](https://pro-gallery-1-10-9.surge.sh) (03/05/2020)
 
 #### GALLERY
