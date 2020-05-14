@@ -259,7 +259,10 @@ class SlideshowView extends GalleryComponent {
       //this.props.actions.onCurrentItemChanged(this.state.currentIdx);
       this.props.actions.eventsListener(
         EVENTS.CURRENT_ITEM_CHANGED,
-        this.props.items[this.state.currentIdx],
+        {
+          ...this.props.items[this.state.currentIdx],
+          idx: this.state.currentIdx
+        },
       );
     }
     this.removeArrowsIfNeeded();

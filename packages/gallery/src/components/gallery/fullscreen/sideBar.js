@@ -10,8 +10,13 @@ export class SideBar extends Component {
     console.log(this.props);
     
     const containerStyle ={
-      width: '30%',
       height: '100%',
+      width: '30%',
+      padding: '40px 120px 0 0',
+      boxSizing: 'border-box',
+      position: 'fixed',
+      right: 0,
+
     }
     const titleStyle = {
       fontSize: '24px',

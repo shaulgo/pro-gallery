@@ -5,6 +5,7 @@ import LAYOUTS from '../../../common/constants/layout';
 import GALLERY_CONSTS from '../../../common/constants';
 import FullscreenNavbr from './fullscreenNavbr';
 import SideBar from './sideBar';
+import utils from '../../../common/utils';
 
 export const fixedStyles = {
   galleryLayout: LAYOUTS.SLIDESHOW,
@@ -37,9 +38,15 @@ export const fixedStyles = {
   cropOnlyFill: false,
   floatingImages: 0,
   imageMargin: 0,
-  slideshowInfoSize: 200,
+  slideshowInfoSize: 100,
+  allowTitle: false,
+  allowDescription: false,
   arrowsPosition: GALLERY_CONSTS.arrowsPosition.OUTSIDE_GALLERY,
   showArrows: true,
+  loveButton: !utils.isMobile(),
+  allowSocial: !utils.isMobile(),
+  allowDownload: !utils.isMobile(),
+  arrowsColor: {value: 'rgba(0,0,0,1)'}
 }
 
 export const createStyles = styles => {
@@ -53,6 +60,7 @@ export default class Fullscreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentIdx: -1,
       currentItemInfo: {
         title: '',
         description: ''
@@ -61,33 +69,50 @@ export default class Fullscreen extends React.Component {
     this.getGallerySize = this.getGallerySize.bind(this);
     this.galleryEventListener = this.galleryEventListener.bind(this);
     this.getSideBar = this.getSideBar.bind(this);
+
+    this.state.currentIdx = this.props.currentIdx
   }
-  
-  galleryEventListener(eventName,data){
-    console.log('gallery change',eventName,data);
+
+  galleryEventListener(eventName, data) {
+    console.log('gallery change', eventName, data);
     switch (eventName) {
       case GALLERY_CONSTS.events.CURRENT_ITEM_CHANGED:
-          this.setState({
-            currentItemInfo: {
-              title: data.metaData.title || '',
-              description: data.metaData.description || ''
-            }
-          })
+        this.setState({
+          currentIdx: data.idx,
+          currentItemInfo: {
+            title: data.metaData.title || '',
+            description: data.metaData.description || ''
+          }
+        })
         break;
-    
+
       default:
         break;
     }
   }
   getGalleryComponent() {
-    return (<ProGallery
-      {...this.props}
-      eventsListener={this.galleryEventListener}
-      container={this.getGallerySize()}
-      styles={
-        createStyles(this.props.styles)
-      }
-    />)
+    const containerStyle = {
+      ...this.getGallerySize(),
+      position: 'absolute',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      padding: 20,
+    }
+    return (
+      <div 
+      style={containerStyle}
+      >
+        <ProGallery
+          {...this.props}
+          currentIdx={this.state.currentIdx}
+          eventsListener={this.galleryEventListener}
+          container={this.getGallerySize()}
+          styles={
+            createStyles(this.props.styles)
+          }
+        />
+      </div>
+    )
   }
 
   getGallerySize() {
@@ -96,16 +121,21 @@ export default class Fullscreen extends React.Component {
     const { width, height } = this.props.container;
     const container = {
       width: isSideInfo ? width * 0.7 : width,
-      height: isSideInfo ? height * 0.8 : height,
+      height: isSideInfo ? height * 0.7 : height,
     }
+    // const container = {
+    //   width: 400,
+    //   height: 300,
+    // }
+
     return container;
   }
 
-  getNavbar(){
-    return <FullscreenNavbr {...this.props}/>
+  getNavbar() {
+    return <FullscreenNavbr {...this.props} />
   }
-  getSideBar(){
-    return <SideBar currentItemInfo={this.state.currentItemInfo}/>
+  getSideBar() {
+    return <SideBar currentItemInfo={this.state.currentItemInfo} />
   }
 
   /////////////// REACT ///////////////////
@@ -119,7 +149,7 @@ export default class Fullscreen extends React.Component {
       top: 0,
       left: 0,
       zIndex: '1000',
-      paddingTop: '80px', // navbar size
+      paddingTop: '90px', // navbar size
       display: 'flex',
     }
 
