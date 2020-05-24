@@ -44,7 +44,7 @@ class ItemView extends GalleryComponent {
       retries: 0,
       showShare: false,
       isCurrentHover: false,
-      itemWasHovered: false 
+      itemWasHovered: false
     };
 
     this.activeElement = '';
@@ -325,7 +325,7 @@ class ItemView extends GalleryComponent {
     const { styleParams } = this.props;
     const { alwaysShowHover, previewHover, hoveringBehaviour } = styleParams;
     const { NEVER_SHOW, APPEARS } = INFO_BEHAVIOUR_ON_HOVER;
-    
+
     if (hoveringBehaviour === NEVER_SHOW) {
       return false;
     } else if (alwaysShowHover === true) {
@@ -681,16 +681,12 @@ class ItemView extends GalleryComponent {
       };
       const slideshowInfo = customSlideshowInfoRenderer
         ? customSlideshowInfoRenderer(this.getCustomInfoRendererProps())
-        : (<div
-          className="gallery-item-info gallery-item-bottom-info"
-          data-hook="gallery-item-info-buttons"
-          style={style}
-        >
-          <div>
+        : (
+          <div className="gallery-slideshow-info-inner">
             {social}
             {itemTexts}
           </div>
-        </div>);
+        );
 
       const { photoId, id, idx } = this.props;
       itemInner = (
@@ -705,7 +701,13 @@ class ItemView extends GalleryComponent {
           >
             {itemInner}
           </a>
-          {slideshowInfo}
+          <div
+            className="gallery-slideshow-info"
+            data-hook="gallery-slideshow-info-buttons"
+            style={style}
+          >
+            {slideshowInfo}
+          </div>
         </div>
       );
     }
