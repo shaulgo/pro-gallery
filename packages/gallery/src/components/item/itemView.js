@@ -93,6 +93,7 @@ class ItemView extends GalleryComponent {
       failed: this.state.retries >= 3,
     });
   }
+
   setItemLoaded() {
     this.props.actions.eventsListener(EVENTS.ITEM_LOADED, this.props);
     this.setState({
@@ -1121,11 +1122,10 @@ class ItemView extends GalleryComponent {
       >
         {this.getTopInfoElementIfNeeded()}
         {this.getLeftInfoElementIfNeeded()}
-        {this.getRightInfoElementIfNeeded()}
         <div
           style={{...(!this.props.styleParams.isSlideshow && getImageStyle(this.props.styleParams)),
-            // ...((hasRightPlacement(this.props.styleParams.titlePlacement)) && {float: 'left'}),
-            // ...((hasLeftPlacement(this.props.styleParams.titlePlacement)) && {float: 'right'})
+            ...((hasRightPlacement(this.props.styleParams.titlePlacement)) && {float: 'left'}),
+            ...((hasLeftPlacement(this.props.styleParams.titlePlacement)) && {float: 'right'})
           }}
         >
           {!isItemWrapperEmpty && (<div
@@ -1138,6 +1138,7 @@ class ItemView extends GalleryComponent {
             {this.getItemInner()}
           </div>)}
         </div>
+        {this.getRightInfoElementIfNeeded()}
         {this.getBottomInfoElementIfNeeded()}
       </div>
     );
