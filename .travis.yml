@@ -2,7 +2,10 @@ language: node_js
 dist: trusty
 addons:
   chrome: stable
+  hostname: localhost
 sudo: required
+before_install:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 node_js:
   - "10"
 install:
