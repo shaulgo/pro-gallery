@@ -955,7 +955,7 @@ export class GalleryContainer extends React.Component {
           styleParams={this.state.styles}
           container={this.state.container}
           watermark={this.props.watermarkData}
-          settings={this.props.settings}
+          settings={...this.props.settings, avoidInlineStyles: true}
           scroll={{}} //todo: remove after refactor is 100%
           lazyLoad={this.props.lazyLoad}
           displayShowMore={displayShowMore}
