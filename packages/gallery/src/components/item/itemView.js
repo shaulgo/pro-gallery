@@ -203,6 +203,9 @@ class ItemView extends GalleryComponent {
         itemClick,
         alwaysShowHover,
         previewHover,
+        allowDescription,
+        allowTitle,
+        isStoreGallery
       } = this.props.styleParams;
       const isNewMobileSettings = featureManager.supports.mobileSettings;
       if (hoveringBehaviour === GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW) {
@@ -212,8 +215,10 @@ class ItemView extends GalleryComponent {
         return true;
       } else if (
         this.props.customHoverRenderer &&
-        GALLERY_CONSTS.hasHoverPlacement(titlePlacement) && hoveringBehaviour !== GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW &&
-        isNewMobileSettings
+        GALLERY_CONSTS.hasHoverPlacement(titlePlacement) &&
+         hoveringBehaviour !== GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW &&
+        isNewMobileSettings &&
+        (allowDescription || allowTitle || isStoreGallery)
       ) {
         return true;
       }
@@ -581,7 +586,9 @@ class ItemView extends GalleryComponent {
       height: style.height + style.infoHeight,
     };
 
-    return { ...itemStyles, ...layoutStyles, ...containerStyleByStyleParams };
+    const customElementSsrStyles = (utils.isSSR() && isPrerenderMode()) ? {opacity: 0} : {}
+
+    return { ...itemStyles, ...layoutStyles, ...containerStyleByStyleParams, ...customElementSsrStyles };
   }
 
   getItemWrapperStyles() {
