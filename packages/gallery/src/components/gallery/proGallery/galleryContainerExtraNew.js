@@ -1,9 +1,8 @@
 import React from 'react';
-import { GALLERY_CONSTS, dimensionsHelper, ItemsHelper, isEditMode, isSEOMode, isPreviewMode, isSiteMode } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, dimensionsHelper, ItemsHelper, window, isEditMode, isSEOMode, isPreviewMode, isSiteMode } from 'pro-gallery-lib';
 import GalleryView from './galleryView';
 import SlideshowView from './slideshowView';
 import { scrollToItemImp, scrollToGroupImp } from '../../helpers/scrollHelper';
-import window from '../../../common/window/windowWrapper';
 import ScrollIndicator from './galleryScrollIndicator';
 import { createCssLayouts } from '../../helpers/cssLayoutsHelper.js';
 import { cssScrollHelper } from '../../helpers/cssScrollHelper.js';

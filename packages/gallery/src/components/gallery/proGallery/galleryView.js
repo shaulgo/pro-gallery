@@ -1,7 +1,7 @@
 import React from 'react';
+import { window } from 'pro-gallery-lib';
 import GalleryDebugMessage from './galleryDebugMessage';
 import utils from '../../../common/utils/index.js';
-import window from '../../../common/window/windowWrapper';
 import itemView from '../../item/itemView.js';
 import { GalleryComponent } from '../../galleryComponent';
 

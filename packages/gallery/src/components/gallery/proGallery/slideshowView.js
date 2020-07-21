@@ -1,9 +1,8 @@
 import React from 'react';
-import { GALLERY_CONSTS, isEditMode, isPreviewMode } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, window, isEditMode, isPreviewMode } from 'pro-gallery-lib';
 import utils from '../../../common/utils';
 import GroupView from '../../group/groupView.js';
 import GalleryDebugMessage from './galleryDebugMessage.js';
-import window from '../../../common/window/windowWrapper';
 import { isGalleryInViewport } from './galleryHelpers.js';
 import PlayIcon from '../../svgs/components/play';
 import PauseIcon from '../../svgs/components/pause';

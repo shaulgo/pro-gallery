@@ -9,6 +9,7 @@ export { featureManager } from './core/helpers/versionsHelper';
 export { addPresetStyles } from './core/presets/presets';
 export { NEW_PRESETS } from './core/presets/presets';
 
+export { default as window } from './common/window/windowWrapper';
 
 
 export { viewModeWrapper } from './common/window/viewModeWrapper';

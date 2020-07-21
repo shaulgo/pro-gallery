@@ -1,11 +1,10 @@
 import { Layouter } from 'pro-layouts';
-import { GALLERY_CONSTS, dimensionsHelper, ItemsHelper, isEditMode, isSEOMode, isPreviewMode, isSiteMode } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, dimensionsHelper, ItemsHelper, window, isEditMode, isSEOMode, isPreviewMode, isSiteMode } from 'pro-gallery-lib';
 import React from 'react';
 import GalleryView from './galleryView';
 import SlideshowView from './slideshowView';
 import addLayoutStyles from '../../helpers/layoutHelper';
 import { scrollToItemImp, scrollToGroupImp } from '../../helpers/scrollHelper';
-import window from '../../../common/window/windowWrapper';
 import ScrollIndicator from './galleryScrollIndicator';
 import { cssScrollHelper } from '../../helpers/cssScrollHelper.js';
 import { createCssLayouts } from '../../helpers/cssLayoutsHelper.js';

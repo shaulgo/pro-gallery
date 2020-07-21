@@ -1,9 +1,8 @@
-import { GALLERY_CONSTS, dimensionsHelper } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, dimensionsHelper, window } from 'pro-gallery-lib';
 import {
   isWithinPaddingVertically,
   isWithinPaddingHorizontally,
 } from './scrollHelper';
-import window from '../../common/window/windowWrapper';
 
 const VIDEO_EVENTS = {
   SCROLL: 'SCROLL',

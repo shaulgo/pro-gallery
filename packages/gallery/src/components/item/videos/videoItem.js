@@ -1,7 +1,6 @@
 import React from 'react';
-import { GALLERY_CONSTS } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, window } from 'pro-gallery-lib';
 import utils from '../../../common/utils';
-import window from '../../../common/window/windowWrapper';
 import { GalleryComponent } from '../../galleryComponent';
 
 class VideoItem extends GalleryComponent {
