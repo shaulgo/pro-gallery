@@ -3,7 +3,7 @@ import { GALLERY_CONSTS } from 'pro-gallery-lib';
 export function getContainerStyle(styleParams) {
   return {
     ...((styleParams.imageInfoType === GALLERY_CONSTS.infoType.ATTACHED_BACKGROUND ||
-      GALLERY_CONSTS.placements.hasHoverPlacement(styleParams.titlePlacement)) &&
+      GALLERY_CONSTS.hasHoverPlacement(styleParams.titlePlacement)) &&
       {
         ...getBorderStyle(
           styleParams.itemBorderRadius,
@@ -32,7 +32,7 @@ function boxShadow(styleParams) {
 
 export function getImageStyle(styleParams) {
   return {
-    ...(!(GALLERY_CONSTS.placements.hasHoverPlacement(styleParams.titlePlacement)) &&
+    ...(!(GALLERY_CONSTS.hasHoverPlacement(styleParams.titlePlacement)) &&
       (styleParams.imageInfoType === GALLERY_CONSTS.infoType.NO_BACKGROUND ||
         styleParams.imageInfoType === GALLERY_CONSTS.infoType.SEPARATED_BACKGROUND) && {
         ...getBorderStyle(
@@ -58,11 +58,11 @@ function getBorderStyle(borderRadius, borderWidth, borderColor) {
 
 export function getOuterInfoStyle(placement, styleParams, mediaHeight, textBoxHeight) {
   const styles = {
-    ...((GALLERY_CONSTS.placements.hasHorizontalPlacement(placement)) && {
+    ...((GALLERY_CONSTS.hasHorizontalPlacement(placement)) && {
       height: mediaHeight,
-      float: GALLERY_CONSTS.placements.isRightPlacement(placement) ? 'right' : 'left',
+      float: GALLERY_CONSTS.isRightPlacement(placement) ? 'right' : 'left',
     }),
-    ...((GALLERY_CONSTS.placements.hasVerticalPlacement(placement)) && {
+    ...((GALLERY_CONSTS.hasVerticalPlacement(placement)) && {
       height: textBoxHeight,
       boxSizing: 'content-box'
     })
@@ -75,10 +75,10 @@ export function getOuterInfoStyle(placement, styleParams, mediaHeight, textBoxHe
         styleParams.textBoxBorderWidth,
         styleParams.textBoxBorderColor,
       ),
-      ...(GALLERY_CONSTS.placements.hasAbovePlacement(placement) && {
+      ...(GALLERY_CONSTS.hasAbovePlacement(placement) && {
         marginBottom: styleParams.textImageSpace,
       }),
-      ...(GALLERY_CONSTS.placements.hasBelowPlacement(placement) && {
+      ...(GALLERY_CONSTS.hasBelowPlacement(placement) && {
         marginTop: styleParams.textImageSpace,
       }),
     };
@@ -112,8 +112,8 @@ export function getInnerInfoStyle(placement, styleParams, infoHeight, infoWidth)
     boxSizing: 'border-box',
   };
 
-  const infoAboveOrBelow = GALLERY_CONSTS.placements.hasVerticalPlacement(placement);
-  const infoRightOrLeft = GALLERY_CONSTS.placements.hasHorizontalPlacement(placement);
+  const infoAboveOrBelow = GALLERY_CONSTS.hasVerticalPlacement(placement);
+  const infoRightOrLeft = GALLERY_CONSTS.hasHorizontalPlacement(placement);
 
   return {
     ...commonStyles,

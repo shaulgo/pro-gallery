@@ -6,7 +6,7 @@ export default {
   isRelevant: (styleParams) => (styleParams.isVertical &&
     styleParams.groupSize === 1 &&
     !styleParams.oneRow) &&
-    GALLERY_CONSTS.placements.hasVerticalPlacement(styleParams.titlePlacement),
+    GALLERY_CONSTS.hasVerticalPlacement(styleParams.titlePlacement),
   type: INPUT_TYPES.NUMBER,
   default: 200,
   min: 0,

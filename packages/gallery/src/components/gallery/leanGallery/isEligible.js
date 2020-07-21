@@ -211,7 +211,7 @@ const fixedStyleParams = {
   itemEnableShadow: false,
   itemClick: [GALLERY_CONSTS.itemClick.NOTHING, GALLERY_CONSTS.itemClick.LINK, GALLERY_CONSTS.itemClick.FULLSCREEN, GALLERY_CONSTS.itemClick.EXPAND],
   scrollAnimation: GALLERY_CONSTS.scrollAnimations.NO_EFFECT,
-  titlePlacement: sp => GALLERY_CONSTS.placements.isVerticalPlacement(sp.titlePlacement) || sp.hoveringBehaviour === GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW,
+  titlePlacement: sp => GALLERY_CONSTS.isVerticalPlacement(sp.titlePlacement) || sp.hoveringBehaviour === GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW,
   imageHoverAnimation: GALLERY_CONSTS.imageHoverAnimations.NO_EFFECT,
   loveButton: false,
   loveCounter: false,

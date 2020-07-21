@@ -2,7 +2,7 @@ import utils from '../../common/utils';
 import window from '../../common/window/windowWrapper';
 import { featureManager } from './versionsHelper';
 import SCROLL_DIRECTION from '../../common/constants/scrollDirection';
-import PLACEMENTS from '../../common/constants/placements';
+import PLACEMENTS, { hasVerticalPlacement, hasHoverPlacement, hasHorizontalPlacement } from '../../common/constants/placements';
 import INFO_BEHAVIOUR_ON_HOVER from '../../common/constants/infoBehaviourOnHover'
 import LOADING_MODE from '../../common/constants/loadingMode';
 import LOADING_WITH_COLOR_MODE from '../../common/constants/loadingWithColorMode';
@@ -117,7 +117,7 @@ function processLayouts(styles, customExternalInfoRendererExists) {
   }
 
   // to_wrapper
-  if (!PLACEMENTS.hasHoverPlacement(processedStyles.titlePlacement) &&
+  if (!hasHoverPlacement(processedStyles.titlePlacement) &&
     processedStyles.hoveringBehaviour !== INFO_BEHAVIOUR_ON_HOVER.NEVER_SHOW
     ) {
     processedStyles.hoveringBehaviour = INFO_BEHAVIOUR_ON_HOVER.APPEARS;
@@ -301,7 +301,7 @@ function processLayouts(styles, customExternalInfoRendererExists) {
 
 function getHeightFromStyleParams(styleParams, textBoxHeight) {
   let additionalHeight = textBoxHeight;
-  if (textBoxHeight > 0 && PLACEMENTS.hasVerticalPlacement(styleParams.titlePlacement) &&
+  if (textBoxHeight > 0 && hasVerticalPlacement(styleParams.titlePlacement) &&
     styleParams.imageInfoType === INFO_TYPE.SEPARATED_BACKGROUND
   ) {
     additionalHeight += styleParams.textImageSpace;
@@ -335,7 +335,7 @@ function shouldShowTextRightOrLeft(styleParams, customExternalInfoRendererExists
   const allowedByLayoutConfig = !oneRow && isVertical && groupSize === 1;
 
   return (allowedByLayoutConfig &&
-    PLACEMENTS.hasHorizontalPlacement(titlePlacement) &&
+    hasHorizontalPlacement(titlePlacement) &&
     customExternalInfoRendererExists)
 }
 
@@ -348,7 +348,7 @@ function getTextBoxAboveOrBelowHeight(styleParams, customExternalInfoRendererExi
 
 function shouldShowTextBoxAboveOrBelow(styleParams, customExternalInfoRendererExists) {
   return (
-    PLACEMENTS.hasVerticalPlacement(styleParams.titlePlacement) &&
+    hasVerticalPlacement(styleParams.titlePlacement) &&
     customExternalInfoRendererExists
   );
 }
@@ -359,7 +359,7 @@ function isSlideshowFont(styles) {
     return true;
   }
   if (
-    PLACEMENTS.hasVerticalPlacement(styles.titlePlacement)
+    hasVerticalPlacement(styles.titlePlacement)
   ) {
     if (galleryLayout === 4 || galleryLayout === 6 || galleryLayout === 7) {
       return true;

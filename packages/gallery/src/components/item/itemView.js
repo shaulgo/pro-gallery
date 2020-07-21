@@ -212,7 +212,7 @@ class ItemView extends GalleryComponent {
         return true;
       } else if (
         this.props.customHoverRenderer &&
-        GALLERY_CONSTS.placements.GALLERY_CONSTS.placements.hasHoverPlacement(titlePlacement) && hoveringBehaviour !== GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW &&
+        GALLERY_CONSTS.hasHoverPlacement(titlePlacement) && hoveringBehaviour !== GALLERY_CONSTS.infoBehaviourOnHover.NEVER_SHOW &&
         isNewMobileSettings
       ) {
         return true;
@@ -475,7 +475,7 @@ class ItemView extends GalleryComponent {
   }
 
   getRightInfoElementIfNeeded() {
-    if (GALLERY_CONSTS.placements.hasRightPlacement(this.props.styleParams.titlePlacement)) {
+    if (GALLERY_CONSTS.hasRightPlacement(this.props.styleParams.titlePlacement)) {
       return this.getExternalInfoElement(GALLERY_CONSTS.placements.SHOW_ON_THE_RIGHT, 'gallery-item-right-info');
     } else {
       return null;
@@ -483,7 +483,7 @@ class ItemView extends GalleryComponent {
   }
 
   getLeftInfoElementIfNeeded() {
-    if (GALLERY_CONSTS.placements.hasLeftPlacement(this.props.styleParams.titlePlacement)) {
+    if (GALLERY_CONSTS.hasLeftPlacement(this.props.styleParams.titlePlacement)) {
       return this.getExternalInfoElement(GALLERY_CONSTS.placements.SHOW_ON_THE_LEFT, 'gallery-item-left-info');
     } else {
       return null;
@@ -491,7 +491,7 @@ class ItemView extends GalleryComponent {
   }
 
   getBottomInfoElementIfNeeded() {
-    if (GALLERY_CONSTS.placements.GALLERY_CONSTS.placements.hasBelowPlacement(this.props.styleParams.titlePlacement)) {
+    if (GALLERY_CONSTS.hasBelowPlacement(this.props.styleParams.titlePlacement)) {
       return this.getExternalInfoElement(GALLERY_CONSTS.placements.SHOW_BELOW, 'gallery-item-bottom-info');
     } else {
       return null;
@@ -499,7 +499,7 @@ class ItemView extends GalleryComponent {
   }
 
   getTopInfoElementIfNeeded() {
-    if (GALLERY_CONSTS.placements.GALLERY_CONSTS.placements.hasAbovePlacement(this.props.styleParams.titlePlacement)) {
+    if (GALLERY_CONSTS.hasAbovePlacement(this.props.styleParams.titlePlacement)) {
       return this.getExternalInfoElement(GALLERY_CONSTS.placements.SHOW_ABOVE, 'gallery-item-top-info');
     } else {
       return null;
@@ -878,8 +878,8 @@ class ItemView extends GalleryComponent {
         {this.getLeftInfoElementIfNeeded()}
         <div
           style={{...(!this.props.styleParams.isSlideshow && getImageStyle(this.props.styleParams)),
-            ...((GALLERY_CONSTS.placements.hasRightPlacement(this.props.styleParams.titlePlacement)) && {float: 'left'}),
-            ...((GALLERY_CONSTS.placements.hasLeftPlacement(this.props.styleParams.titlePlacement)) && {float: 'right'})
+            ...((GALLERY_CONSTS.hasRightPlacement(this.props.styleParams.titlePlacement)) && {float: 'left'}),
+            ...((GALLERY_CONSTS.hasLeftPlacement(this.props.styleParams.titlePlacement)) && {float: 'right'})
           }}
         >
           {!isItemWrapperEmpty && (<div

@@ -187,7 +187,7 @@ export default class LeanGallery extends React.Component {
       return 'auto';
     }
 
-    if (GALLERY_CONSTS.placements.GALLERY_CONSTS.placements.hasVerticalPlacement(titlePlacement)) {
+    if (GALLERY_CONSTS.hasVerticalPlacement(titlePlacement)) {
       return height + textBoxHeight;
     } else {
       return height;
