@@ -8,7 +8,7 @@ import { resizeMediaUrl } from '../../utils/itemResizer';
 import {setStyleParamsInUrl} from '../../constants/styleParams'
 import { GALLERY_CONSTS, ExpandableProGallery } from 'pro-gallery';
 import SideBarButton from '../SideBar/SideBarButton';
-import {BlueprintsManager} from 'pro-gallery'
+import { BlueprintsManager } from 'pro-gallery-lib'
 import BlueprintsApi from './PlaygroundBlueprintsApi'
 
 // import Loader from './loader';
@@ -35,7 +35,7 @@ const galleryReadyEvent = new Event('galleryReady');
 
 export function App() {
   const {setDimensions, styleParams, setItems, items, gallerySettings, setGallerySettings, setBlueprint, blueprint, setDimensionsHeight, setDimensionsWidth, dimensions} = useGalleryContext(blueprintsManager);
-  
+
   const {showSide} = gallerySettings;
   // const [fullscreenIdx, setFullscreenIdx] = useState(-1);
   const {numberOfItems = 0, mediaType = 'mixed'} = gallerySettings || {};
@@ -127,7 +127,7 @@ export function App() {
     }
   }
 
-  
+
     function getTotalItemsCount() {
       return numberOfItems > 0 ? numberOfItems : Infinity
     }
@@ -194,7 +194,7 @@ export function App() {
       customSlideshowInfoRenderer: slideshowInfoElement,
     };
   }
-  
+
   function getContainer() {
     return {...container, ...dimensions};
   }
@@ -207,7 +207,7 @@ export function App() {
     options: styleParams,
     container };
 
-    
+
     const canRender = ()=> {
       if (!gallerySettings.useBlueprints || blueprint) {
         return true;
