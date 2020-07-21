@@ -34,7 +34,6 @@ export default class ItemHover extends GalleryComponent {
       imageDimensions,
       actions,
       idx,
-      styleParams,
     } = this.props;
     if (!shouldHover) {
       return null;
