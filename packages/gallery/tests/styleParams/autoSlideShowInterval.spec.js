@@ -1,7 +1,6 @@
-import { GALLERY_CONSTS } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, viewModeWrapper } from 'pro-gallery-lib';
 import { expect } from 'chai';
 import SlideshowView from '../../src/components/gallery/proGallery/slideshowView';
-import { viewModeWrapper } from '../../src/common/window/viewModeWrapper';
 import GalleryDriver from '../drivers/reactDriver'
 import sinon from 'sinon';
 

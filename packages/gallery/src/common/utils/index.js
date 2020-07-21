@@ -4,7 +4,7 @@ import {
   isEditMode,
   isPreviewMode,
   isFormFactorMobile,
-} from '../window/viewModeWrapper';
+} from 'pro-gallery-lib';
 
 class Utils {
   constructor() {
@@ -282,7 +282,7 @@ class Utils {
     });
   }
 
-  //TODO : Replace with isPrerender mode 
+  //TODO : Replace with isPrerender mode
   isSSR() {
     return typeof global.window === 'undefined';;
   }

@@ -1,5 +1,5 @@
 import { Layouter } from 'pro-layouts';
-import { GALLERY_CONSTS, dimensionsHelper, ItemsHelper } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, dimensionsHelper, ItemsHelper, isEditMode, isSEOMode, isPreviewMode, isSiteMode } from 'pro-gallery-lib';
 import React from 'react';
 import GalleryView from './galleryView';
 import SlideshowView from './slideshowView';
@@ -10,7 +10,6 @@ import ScrollIndicator from './galleryScrollIndicator';
 import { cssScrollHelper } from '../../helpers/cssScrollHelper.js';
 import { createCssLayouts } from '../../helpers/cssLayoutsHelper.js';
 import utils from '../../../common/utils';
-import { isEditMode, isSEOMode, isPreviewMode, isSiteMode } from '../../../common/window/viewModeWrapper';
 import checkNewGalleryProps from '../../helpers/isNew';
 import VideoScrollHelperWrapper from '../../helpers/videoScrollHelperWrapper.js'
 

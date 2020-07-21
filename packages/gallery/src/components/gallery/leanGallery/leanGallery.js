@@ -1,6 +1,5 @@
 import React from 'react';
-import { GALLERY_CONSTS, processLayouts, addPresetStyles } from 'pro-gallery-lib';
-import { isSEOMode } from '../../../common/window/viewModeWrapper';
+import { GALLERY_CONSTS, processLayouts, addPresetStyles, isSEOMode } from 'pro-gallery-lib';
 import {getInnerInfoStyle} from '../../item/itemViewStyleProvider';
 import './leanGallery.scss';
 

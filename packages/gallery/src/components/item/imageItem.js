@@ -1,7 +1,6 @@
 import React from 'react';
-import { GALLERY_CONSTS } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, isSEOMode, isPrerenderMode } from 'pro-gallery-lib';
 import { GalleryComponent } from '../galleryComponent';
-import { isSEOMode, isPrerenderMode } from '../../common/window/viewModeWrapper';
 import utils from '../../common/utils';
 
 const BLURRY_IMAGE_REMOVAL_ANIMATION_DURATION = 1000;

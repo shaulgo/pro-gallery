@@ -1,10 +1,9 @@
 import '../../../common/utils/polyfills';
-
 import React from 'react';
+import { viewModeWrapper } from 'pro-gallery-lib'
 import GalleryContainerForBlueprints from './galleryContainerExtraNew.js';
 import GalleryContainer from './galleryContainerNew.js';
 import utils from '../../../common/utils';
-import { viewModeWrapper } from '../../../common/window/viewModeWrapper';
 import { GalleryComponent } from '../../galleryComponent';
 
 import '../../../versionLogger';

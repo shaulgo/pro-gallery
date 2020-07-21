@@ -1,5 +1,5 @@
 import React from 'react';
-import { GALLERY_CONSTS, featureManager } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, featureManager, isEditMode, isSiteMode, isSEOMode, isPrerenderMode } from 'pro-gallery-lib';
 import ImageItem from './imageItem.js';
 import TextItem from './textItem.js';
 import ItemHover from './itemHover.js';
@@ -7,12 +7,6 @@ import utils from '../../common/utils/index.js';
 import window from '../../common/window/windowWrapper';
 import { cssScrollHelper } from '../helpers/cssScrollHelper';
 import { GalleryComponent } from '../galleryComponent';
-import {
-  isEditMode,
-  isSiteMode,
-  isSEOMode,
-  isPrerenderMode,
-} from '../../common/window/viewModeWrapper';
 import {
   getOuterInfoStyle,
   getInnerInfoStyle,
