@@ -1,8 +1,7 @@
 import React from 'react';
+import { GALLERY_CONSTS, dimensionsHelper, ItemsHelper } from 'pro-gallery-lib';
 import GalleryView from './galleryView';
 import SlideshowView from './slideshowView';
-import { ItemsHelper } from '../../helpers/itemsHelper';
-import dimensionsHelper from '../../helpers/dimensionsHelper';
 import { scrollToItemImp, scrollToGroupImp } from '../../helpers/scrollHelper';
 import window from '../../../common/window/windowWrapper';
 import ScrollIndicator from './galleryScrollIndicator';
@@ -10,7 +9,6 @@ import { createCssLayouts } from '../../helpers/cssLayoutsHelper.js';
 import { cssScrollHelper } from '../../helpers/cssScrollHelper.js';
 import utils from '../../../common/utils';
 import { isEditMode, isSEOMode, isPreviewMode, isSiteMode } from '../../../common/window/viewModeWrapper';
-import EVENTS from '../../../common/constants/events';
 import VideoScrollHelperWrapper from '../../helpers/videoScrollHelperWrapper'
 
 export class GalleryContainer extends React.Component {
@@ -63,7 +61,7 @@ export class GalleryContainer extends React.Component {
 
   componentDidMount() {
     this.scrollToItem(this.props.currentIdx, false, true, 0);
-    this.eventsListener(EVENTS.APP_LOADED, {});
+    this.eventsListener(GALLERY_CONSTS.events.APP_LOADED, {});
     this.videoScrollHelper.initializePlayState();
 
     try {
@@ -182,7 +180,7 @@ export class GalleryContainer extends React.Component {
       updatedHeight,
     };
     console.log('handleNewGalleryStructure', onGalleryChangeData);
-    this.eventsListener(EVENTS.GALLERY_CHANGE, onGalleryChangeData);
+    this.eventsListener(GALLERY_CONSTS.events.GALLERY_CHANGE, onGalleryChangeData);
 
     if (needToHandleShowMoreClick) {
       this.setState({ needToHandleShowMoreClick: false });
@@ -255,7 +253,7 @@ export class GalleryContainer extends React.Component {
       }
 
       this.videoScrollHelper.updateGalleryStructure(scrollHelperNewGalleryStructure, true , this.items)
-      
+
       const layoutParams = {
         items: items,
         container,
@@ -416,7 +414,7 @@ export class GalleryContainer extends React.Component {
 
   toggleLoadMoreItems() {
     this.eventsListener(
-      EVENTS.LOAD_MORE_CLICKED,
+      GALLERY_CONSTS.events.LOAD_MORE_CLICKED,
       this.galleryStructure.galleryItems,
     );
     const showMoreClickedAtLeastOnce = true;
@@ -470,7 +468,7 @@ export class GalleryContainer extends React.Component {
       eventName,
       eventData,
     });
-    if (eventName === EVENTS.HOVER_SET) {
+    if (eventName === GALLERY_CONSTS.events.HOVER_SET) {
       this.currentHoverChangeEvent.currentHoverIdx = eventData;
       window.dispatchEvent(this.currentHoverChangeEvent);
     }
@@ -501,7 +499,7 @@ export class GalleryContainer extends React.Component {
       if (galleryEnd - scrollEnd < getItemsDistance) {
         //only when the last item turns visible we should try getting more items
           this.gettingMoreItems = true;
-          this.eventsListener(EVENTS.NEED_MORE_ITEMS, this.state.items.length);
+          this.eventsListener(GALLERY_CONSTS.events.NEED_MORE_ITEMS, this.state.items.length);
           setTimeout(() => {
             //wait a bit before allowing more items to be fetched - ugly hack before promises still not working
             this.gettingMoreItems = false;

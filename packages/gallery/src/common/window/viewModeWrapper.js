@@ -1,5 +1,4 @@
-import VIEW_MODE from '../constants/viewMode';
-import FORM_FACTOR from '../constants/formFactor';
+import { GALLERY_CONSTS } from 'pro-gallery-lib';
 
 class ViewModeWrapper {
   constructor() {
@@ -14,8 +13,8 @@ class ViewModeWrapper {
     this.isFormFactorMobile = this.isFormFactorMobile.bind(this);
     this.isFormFactorTablet = this.isFormFactorTablet.bind(this);
     this.isFormFactorTouch = this.isFormFactorTouch.bind(this);
-    this._viewMode = VIEW_MODE.SITE;
-    this._formFactor = FORM_FACTOR.DESKTOP;
+    this._viewMode = GALLERY_CONSTS.viewMode.SITE;
+    this._formFactor = GALLERY_CONSTS.formFactor.DESKTOP;
   }
 
   setViewMode(viewMode) {
@@ -26,36 +25,36 @@ class ViewModeWrapper {
   }
 
   isFormFactorMobile() {
-    return this._formFactor === FORM_FACTOR.MOBILE;
+    return this._formFactor === GALLERY_CONSTS.formFactor.MOBILE;
   }
   isFormFactorTablet() {
-    return this._formFactor === FORM_FACTOR.TABLET;
+    return this._formFactor === GALLERY_CONSTS.formFactor.TABLET;
   }
   isFormFactorDesktop() {
-    return this._formFactor === FORM_FACTOR.DESKTOP;
+    return this._formFactor === GALLERY_CONSTS.formFactor.DESKTOP;
   }
   isFormFactorTouch() {
     return this.isMobile() || this.isTablet();
   }
 
   isSiteMode() {
-    return this._viewMode === VIEW_MODE.SITE;
+    return this._viewMode === GALLERY_CONSTS.viewMode.SITE;
   }
 
   isEditMode() {
-    return this._viewMode === VIEW_MODE.EDIT;
+    return this._viewMode === GALLERY_CONSTS.viewMode.EDIT;
   }
 
   isPreviewMode() {
-    return this._viewMode === VIEW_MODE.PREVIEW;
+    return this._viewMode === GALLERY_CONSTS.viewMode.PREVIEW;
   }
 
   isPrerenderMode() {
-    return this._viewMode === VIEW_MODE.PRERENDER
+    return this._viewMode === GALLERY_CONSTS.viewMode.PRERENDER
   }
 
   isSEOMode() {
-    return this._viewMode === VIEW_MODE.SEO;
+    return this._viewMode === GALLERY_CONSTS.viewMode.SEO;
   }
 }
 

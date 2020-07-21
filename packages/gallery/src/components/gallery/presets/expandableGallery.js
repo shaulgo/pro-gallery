@@ -1,25 +1,24 @@
 import React from 'react';
+import { GALLERY_CONSTS } from 'pro-gallery-lib';
 import ProGallery from '../index';
-import GALLERY_EVENTS from '../../../common/constants/events';
-// import CLICK_ACTIONS from '../../../common/constants/itemClick';
 import CloseButton from '../../svgs/components/x';
 
 const styles = {
     gallery: {
 
-    }, 
+    },
     fullscreen: {
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        width: '100vw', 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
         height: '100vh',
         zIndex: 9,
         background: 'white',
         opacity: 0,
         transition: 'opacity 2s ease',
         visibility: 'hidden'
-    }, 
+    },
     shown: {
         visibility: 'visible',
         opacity: 1
@@ -38,7 +37,7 @@ const styles = {
         fill: 'black',
         cursor: 'pointer'
     }
-} 
+}
 
 export default class ExpandableProGallery extends React.Component {
 
@@ -52,7 +51,7 @@ export default class ExpandableProGallery extends React.Component {
 
     eventListener(eventName, eventData) {
         switch (eventName) {
-            case GALLERY_EVENTS.ITEM_ACTION_TRIGGERED:
+            case GALLERY_CONSTS.events.ITEM_ACTION_TRIGGERED:
                 this.setState({ fullscreenIdx: eventData.idx });
                 break;
             default:

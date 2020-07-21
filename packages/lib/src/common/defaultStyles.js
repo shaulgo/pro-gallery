@@ -48,7 +48,7 @@ export default {
   slideshowLoop: false,
   autoSlideshowInterval: 4,
   bottomInfoHeight: 0,
-  titlePlacement: GALLERY_CONSTS.placements.SHOW_ON_HOVER,
+  titlePlacement: PLACEMENTS.SHOW_ON_HOVER,
   galleryTextAlign: 'center',
   scrollSnap: false,
   itemClick: GALLERY_CONSTS.itemClick.EXPAND,
