@@ -1,5 +1,5 @@
 import React from 'react';
-import utils from '../../common/utils/index.js';
+import { utils } from 'pro-gallery-lib';
 import { GalleryComponent } from '../galleryComponent';
 
 export default class ItemHover extends GalleryComponent {

@@ -1,9 +1,9 @@
 import React, {lazy, Suspense} from 'react';
+import { utils } from 'pro-gallery-lib';
 import ImageItem from '../imageItem';
 import PlayBackground from '../../svgs/components/play_background';
 import PlayTriangle from '../../svgs/components/play_triangle';
 import VideoItemPlaceholder from './videoItemPlaceholder'
-import utils from '../../../common/utils';
 
 
 const videoControls = [
@@ -49,7 +49,7 @@ class VideoItemWrapper extends ImageItem {
     }
     return false;
   }
-  
+
   createVideoItemPlaceholder(showVideoControls) {
     const props = utils.pick(this.props, [
       'alt',
@@ -86,7 +86,7 @@ class VideoItemWrapper extends ImageItem {
 
     return <Suspense fallback={[videoPlaceholder, hover]}>
             <VideoItem {...this.props} videoControls={showVideoControls && videoControls}/>
-        </Suspense> 
+        </Suspense>
   }
 }
 

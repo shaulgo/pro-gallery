@@ -1,11 +1,10 @@
-import { GALLERY_CONSTS } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, utils } from 'pro-gallery-lib';
 import GalleryDriver from '../../../drivers/reactDriver';
 import { testVideos } from '../../../drivers/mocks/images-mock';
 import sinon from 'sinon';
 import VideoItem from '../../../../src/components/item/videos/videoItem';
 import VideoItemWrapper from '../../../../src/components/item/videos/videoItemWrapper';
 import { expect } from 'chai';
-import utils from '../../../../src/common/utils';
 
 describe('Video Item ', () => {
   let driver;

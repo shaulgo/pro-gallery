@@ -1,6 +1,5 @@
 import React from 'react';
-import { window } from 'pro-gallery-lib';
-import utils from '../../../common/utils/index.js';
+import { window, utils } from 'pro-gallery-lib';
 import { GalleryComponent } from '../../galleryComponent';
 
 class GalleryDebugMessage extends GalleryComponent {

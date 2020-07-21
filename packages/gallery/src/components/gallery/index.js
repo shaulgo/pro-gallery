@@ -1,8 +1,7 @@
 import React from 'react';
-import { GALLERY_CONSTS, defaultStyles, dimensionsHelper, addPresetStyles } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, defaultStyles, dimensionsHelper, addPresetStyles, utils } from 'pro-gallery-lib';
 import ProGallery from './proGallery/proGallery';
 import basePropTypes from './proGallery/propTypes';
-import utils from '../../common/utils';
 import isEligibleForLeanGallery from './leanGallery/isEligible';
 import LeanGallery from './leanGallery/leanGallery';
 

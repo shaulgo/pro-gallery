@@ -1,6 +1,5 @@
 import React from 'react';
-import { GALLERY_CONSTS, window, isEditMode, isPreviewMode } from 'pro-gallery-lib';
-import utils from '../../../common/utils';
+import { GALLERY_CONSTS, window, utils, isEditMode, isPreviewMode } from 'pro-gallery-lib';
 import GroupView from '../../group/groupView.js';
 import GalleryDebugMessage from './galleryDebugMessage.js';
 import { isGalleryInViewport } from './galleryHelpers.js';

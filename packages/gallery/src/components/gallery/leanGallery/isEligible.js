@@ -1,6 +1,5 @@
-import { GALLERY_CONSTS, NEW_PRESETS } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, NEW_PRESETS, utils } from 'pro-gallery-lib';
 import { formatLeanGalleryStyles } from './leanGallery';
-import utils from '../../../common/utils';
 //example: http://pro-gallery.surge.sh/?titlePlacement=DONT_SHOW&itemClick=nothing&allowHover=false&galleryLayout=2&allowLeanGallery=true
 
 export const notEligibleReasons = ({items, styles}) => {

@@ -1,10 +1,9 @@
 import { Layouter } from 'pro-layouts';
-import { GALLERY_CONSTS, GalleryItem, ItemsHelper, window } from 'pro-gallery-lib';
+import { GALLERY_CONSTS, GalleryItem, ItemsHelper, window, utils } from 'pro-gallery-lib';
 import { testImages } from './mocks/images-mock.js';
 import { mount, shallow, configure } from 'enzyme';
 import { GalleryContainer } from '../../src/components/gallery/proGallery/galleryContainerNew'; //import GalleryContainer before the connect (without redux)
 import React from 'react';
-import utils from '../../src/common/utils';
 import Adapter from 'enzyme-adapter-react-16';
 import ProGallery from '../../src/components/gallery';
 

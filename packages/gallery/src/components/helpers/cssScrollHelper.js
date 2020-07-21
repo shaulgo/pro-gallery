@@ -1,5 +1,4 @@
-import { GALLERY_CONSTS, window } from 'pro-gallery-lib';
-import utils from '../../common/utils/index.js';
+import { GALLERY_CONSTS, window, utils } from 'pro-gallery-lib';
 
 class CssScrollHelper {
   constructor() {
