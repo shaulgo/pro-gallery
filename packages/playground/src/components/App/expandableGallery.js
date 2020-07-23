@@ -1,24 +1,24 @@
 import React from 'react';
-import { GALLERY_CONSTS } from 'pro-gallery-lib';
-import ProGallery from '../index';
-import CloseButton from '../../svgs/components/x';
+import {GALLERY_CONSTS, ProGallery, ProBlueprintsGallery} from 'pro-gallery';
+// import CLICK_ACTIONS from '../../../common/constants/itemClick';
+import CloseButton from './x';
 
 const styles = {
     gallery: {
 
-    },
+    }, 
     fullscreen: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100vw', 
         height: '100vh',
         zIndex: 9,
         background: 'white',
         opacity: 0,
         transition: 'opacity 2s ease',
         visibility: 'hidden'
-    },
+    }, 
     shown: {
         visibility: 'visible',
         opacity: 1
@@ -37,7 +37,9 @@ const styles = {
         fill: 'black',
         cursor: 'pointer'
     }
-}
+} 
+
+const GALLERY_EVENTS = GALLERY_CONSTS.events;
 
 export default class ExpandableProGallery extends React.Component {
 
@@ -51,7 +53,7 @@ export default class ExpandableProGallery extends React.Component {
 
     eventListener(eventName, eventData) {
         switch (eventName) {
-            case GALLERY_CONSTS.events.ITEM_ACTION_TRIGGERED:
+            case GALLERY_EVENTS.ITEM_ACTION_TRIGGERED:
                 this.setState({ fullscreenIdx: eventData.idx });
                 break;
             default:
@@ -64,10 +66,11 @@ export default class ExpandableProGallery extends React.Component {
     }
 
     render() {
+        const Gallery = this.props.useBlueprints ? ProBlueprintsGallery : ProGallery;
         return (
             <>
                 <section style={{...styles.gallery, display: (this.state.fullscreenIdx < 0 ? 'block' : 'none')}}>
-                    <ProGallery
+                    <Gallery
                         {...this.props}
                         key={`pro-gallery-${this.props.domId}`}
                         domId={`pro-gallery-${this.props.domId}`}
@@ -76,7 +79,7 @@ export default class ExpandableProGallery extends React.Component {
                 </section>
                 {this.state.fullscreenIdx < 0 ? null : <section style={{ ...styles.fullscreen, ...(this.state.fullscreenIdx >= 0 && styles.shown) }}>
                     <CloseButton style={styles.close} onClick={() => this.setState({fullscreenIdx: -1})} />
-                    <ProGallery
+                    <Gallery
                         {...this.props}
                         key={`pro-fullscreen-${this.props.domId}`}
                         domId={`pro-fullscreen-${this.props.domId}`}

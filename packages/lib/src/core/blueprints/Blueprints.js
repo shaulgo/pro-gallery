@@ -7,7 +7,7 @@ import processLayouts from '../helpers/layoutHelper.js'
 
 class Blueprints {
 
-  createBlueprint(params, lastParams, existingBlueprint, blueprintManagerId) {
+  createBlueprint(params, lastParams, existingBlueprint, blueprintManagerId, isUsingCustomInfoElements) {
     // cacheBlocker
     // if (this.cache[params]) return this.cache[params];
 
@@ -16,7 +16,7 @@ class Blueprints {
     //getItems,styles and dimesions if not supplied in params;
 
     const {formattedItems, changed: itemsChanged} = this.formatItemsIfNeeded(newItemsParams, oldItemsParams)
-    const {formattedStyles, changed: stylesChanged} = this.formatStylesIfNeeded(newStylesParams,oldStylesParams)
+    const {formattedStyles, changed: stylesChanged} = this.formatStylesIfNeeded(newStylesParams,oldStylesParams,isUsingCustomInfoElements)
     const {formattedContainer, changed: containerChanged} = this.formatContainerIfNeeded(newDimensionsParams, newStylesParams, oldDimensionsParams, oldStylesParams, {formattedStyles: formattedStyles || existingBlueprint.styles});
 
     const changed = itemsChanged || stylesChanged || containerChanged;
@@ -147,7 +147,7 @@ class Blueprints {
     return {formattedItems, changed};
   }
 
-  formatStylesIfNeeded(styles, lastStyles) {
+  formatStylesIfNeeded(styles, lastStyles, isUsingCustomInfoElements) {
 
 
     const reason = {
@@ -189,7 +189,7 @@ class Blueprints {
     let formattedStyles;
     if (stylesHaveChanged(styles,oldStylesParams)) {
       styles = {...defaultStyles, ...styles}
-      formattedStyles = processLayouts(addPresetStyles(styles)); // TODO make sure the processLayouts is up to date. delete addLayoutStyles from layoutsHelper when done with it...
+      formattedStyles = processLayouts(addPresetStyles(styles), isUsingCustomInfoElements); // TODO make sure the processLayouts is up to date. delete addLayoutStyles from layoutsHelper when done with it...
 
       const selectedLayoutVars = [
         'galleryLayout',
