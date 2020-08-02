@@ -3,12 +3,6 @@ import { GALLERY_CONSTS } from 'pro-gallery-lib';
 
 context('panorama - e2e', () => {
 
-  beforeEach(async () => {
-  });
-
-  afterEach(() => {
-    driver.closeBrowser();
-  });
   it('panorama - scrollDirection = vertical', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.PANORAMA,
@@ -16,6 +10,7 @@ context('panorama - e2e', () => {
     });
     cy.matchImageSnapshot();
   });
+
   it('panorama - scrollDirection = horizontal', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.PANORAMA,

@@ -7,14 +7,13 @@ context('alternate - e2e', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.ALTERNATE,
       scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL
-    })
-    cy.matchImageSnapshot();
+    }).matchImageSnapshot();
   });
+  
   it('alternate layout - scrollDirection = horizontal', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.ALTERNATE,
       scrollDirection: GALLERY_CONSTS.scrollDirection.HORIZONTAL
-    })
-    cy.matchImageSnapshot();
+    }).matchImageSnapshot();
   });
 })

@@ -2,12 +2,6 @@
 import { GALLERY_CONSTS } from 'pro-gallery-lib';
 
 context('collage - e2e', () => {
-
-  beforeEach(async () => {
-  });
-
-  afterEach(() => {
-  });
   
   it('collage - scrollDirection = vertical', () => {
     cy.navigateWithParams({

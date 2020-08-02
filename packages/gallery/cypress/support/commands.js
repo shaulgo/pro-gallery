@@ -27,6 +27,10 @@ import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 
 addMatchImageSnapshotCommand();
 
+Cypress.Screenshot.defaults({
+  screenshotOnRunFailure: false
+})
+
 Cypress.Commands.add("removeElement", (selector) => {
   cy.get(selector).then((element) => {
     element.remove();
@@ -37,8 +41,6 @@ Cypress.Commands.add("navigateWithParams", (styleParams) => {
   let urlParam = ''
   Object.keys(styleParams).map(sp => urlParam += `${sp}=${styleParams[sp]}&`);
   cy.visit(`http://localhost:3000/?${urlParam}isTestEnvironment=true`);
-  cy.get('#toggleButton').then((element) => {
-    element.remove();
-  })
+  cy.get('#toggleButton').invoke('css', 'display', 'none');
   cy.wait(250);
 })

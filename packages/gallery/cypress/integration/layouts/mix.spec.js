@@ -3,12 +3,6 @@ import { GALLERY_CONSTS } from 'pro-gallery-lib';
 
 context('mix - e2e', () => {
 
-  beforeEach(async () => {
-  });
-
-  afterEach(() => {
-  });
-
   it('mix - scrollDirection = vertical', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.MIX,

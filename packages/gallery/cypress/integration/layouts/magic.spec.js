@@ -3,12 +3,6 @@ import { GALLERY_CONSTS } from 'pro-gallery-lib';
 
 context('magic - e2e', () => {
 
-  beforeEach(async () => {
-  });
-
-  afterEach(() => {
-  });
-  
   it('magic - scrollDirection = vertical, magicLayoutSeed = 1 (vertical)', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.MAGIC,
@@ -26,6 +20,7 @@ context('magic - e2e', () => {
     });
     cy.matchImageSnapshot();
   });
+  
   it('magic - scrollDirection = vertical, magicLayoutSeed = 2 (horizontal)', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.MAGIC,

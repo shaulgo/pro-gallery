@@ -3,12 +3,6 @@ import { GALLERY_CONSTS } from 'pro-gallery-lib';
 
 context('masonry - e2e', () => {
 
-  beforeEach(async () => {
-  });
-
-  afterEach(() => {
-  });
-
   it('masonry - scrollDirection = vertical', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.MASONRY,
@@ -16,6 +10,7 @@ context('masonry - e2e', () => {
     });
     cy.matchImageSnapshot();
   });
+
   it('masonry - scrollDirection = horizontal', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.MASONRY,
@@ -23,6 +18,7 @@ context('masonry - e2e', () => {
     });
     cy.matchImageSnapshot();
   });
+  
   it('masonry horizontal orientation', () => {
     cy.navigateWithParams({
       galleryLayout: GALLERY_CONSTS.layout.MASONRY,

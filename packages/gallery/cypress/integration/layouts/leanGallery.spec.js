@@ -16,12 +16,6 @@ context('leanGallery - e2e', () => {
     scrollDirection: GALLERY_CONSTS.scrollDirection.VERTICAL,
   };
 
-  beforeEach(async () => {
-  });
-
-  afterEach(() => {
-  });
-
   it('should successfully render leanGallery', () => {
     cy.navigateWithParams({
       ...fixedLeanGalleryStyleParams,
