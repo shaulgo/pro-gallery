@@ -1,7 +1,7 @@
 import React from "react";
 
 const SideBarButton = ({ isOpen, onClick, className }) => (
-    <div className={className} style={styles.container} onClick={onClick}>
+    <div id="toggleButton" className={className} style={styles.container} onClick={onClick}>
         {isOpen ? <div>X</div>:
             <div style={styles.barsContainer}>
                 <div style={styles.bar}></div>
