@@ -1,50 +1,33 @@
-import { getLayoutName, NEW_PRESETS, defaultStyles, galleryOptions } from 'pro-gallery-lib';
+import { defaultStyles, galleryOptions } from 'pro-gallery-lib';
 
 export const getInitialStyleParams = () => {
   const savedStyleParams = getStyleParamsFromUrl();
   return {
-    ...defaultStyles,
+    ...defaultStyleParams,
     ...savedStyleParams,
   };
 }
 
 const formatValue = (val) => {
-  if (String(val) === 'true') {
-    return true;
-  } else if (String(val) === 'false') {
-    return false;
-  } else if (Number(val) === parseInt(val)) {
+  if (Number(val) === parseInt(val)) {
     return Number(val);
-  } else {
-    return String(val);
-  }
+   } else if (val === 'true') {
+     return true;
+   } else if (val === 'false') {
+     return false;
+   } else {
+     return String(val);
+   }
 }
 
 export const isValidStyleParam = (styleParam, value, styleParams) => {
-  if (!styleParam) {
-    // console.log(`[STYLE PARAMS - VALIDATION] ${styleParam} is undefined`);
+  if (typeof value === 'undefined' || !styleParam) {
     return false;
   }
-  if (typeof value === 'undefined') {
-    // console.log(`[STYLE PARAMS - VALIDATION] ${styleParam} value is undefined`);
+  if (value === defaultStyleParams[styleParam]) {
     return false;
   }
-  if (value === defaultStyles[styleParam]) {
-    // console.log(`[STYLE PARAMS - VALIDATION] ${styleParam} value is as the default: ${value}`);
-    return false;
-  }
-  styleParams = {...defaultStyles, ...styleParams};
-  const preset = NEW_PRESETS[getLayoutName(styleParams.galleryLayout)];
-  if (styleParam !== 'galleryLayout' && value === preset[styleParam]) {
-    // console.log(`[STYLE PARAMS - VALIDATION] ${styleParam} value is as the preset: ${value}`, preset, getLayoutName(styleParams.galleryLayout));
-    return false;
-  }
-  if (!galleryOptions[styleParam]) {
-    // console.log(`[STYLE PARAMS - VALIDATION] ${styleParam} has not galleryOptions`);
-    return false;
-  }
-  if (!galleryOptions[styleParam].isRelevant(styleParams)) {
-    // console.log(`[STYLE PARAMS - VALIDATION] ${styleParam} value is not relevant`, galleryOptions[styleParam].isRelevant.toString(), styleParams);
+  if (styleParams && (!galleryOptions[styleParam] || !galleryOptions[styleParam].isRelevant(styleParams))) {
     return false;
   }
   return true;
@@ -55,21 +38,15 @@ export const getStyleParamsFromUrl = () => {
     const styleParams = window.location.search
       .replace('?', '').split('&')
       .map(styleParam => styleParam.split('='))
-      .reduce((obj, [styleParam, value]) => Object.assign(obj, {[styleParam]: formatValue(value)}), {});
-      
-    const relevantStyleParams = Object.entries(styleParams)
-      .reduce((obj, [styleParam, value]) => isValidStyleParam(styleParam, value, styleParams) ? Object.assign(obj, {[styleParam]: formatValue(value)}) : obj, {});
+      .reduce((obj, [styleParam, value]) => isValidStyleParam(styleParam, value) ? Object.assign(obj, {[styleParam]: formatValue(value)}) : obj, {});
 
-    // console.log(`[STYLE PARAMS - VALIDATION] getting styleParams from the url`, relevantStyleParams);
-    return relevantStyleParams;
+    return styleParams;
   } catch (e) {
-    console.error('Cannot getStyleParamsFromUrl', e)
     return {};
   }
 }
 
 export const setStyleParamsInUrl = (styleParams) => {
-  // console.log(`[STYLE PARAMS - VALIDATION] setting styleParams in the url`, styleParams);
   const urlParams = Object
     .entries(styleParams)
     .reduce((arr, [styleParam, value]) => isValidStyleParam(styleParam, value, styleParams) ? arr.concat(`${styleParam}=${value}`) : arr, [])
@@ -78,3 +55,25 @@ export const setStyleParamsInUrl = (styleParams) => {
   // window.location.hash = '#' + Object.entries(styleParams).reduce((arr, [styleParam, value]) => styleParam && arr.concat(`${styleParam}=${value}`), []).join('&')
   window.history.replaceState({}, 'Pro Gallery Playground', '?' + urlParams);
 }
+
+const defaultStyleParams = {...defaultStyles};
+Object.entries(galleryOptions).forEach(([styleParam, settings]) => {
+  if (defaultStyleParams[styleParam] !== settings.default) {
+    console.warn('Style Param default MISMATCH!', styleParam, defaultStyleParams[styleParam], settings.default);
+    defaultStyleParams[styleParam] = settings.default;
+  }
+});
+
+export const galleryLayoutId = {
+  empty: -1,
+  collage: 0,
+  masonry: 1,
+  grid: 2,
+  thumbnails: 3,
+  slider: 4,
+  slideshow: 5,
+  panorama: 6,
+  column: 7,
+  magic: 8,
+  fullsize: 9,
+};
