@@ -26,13 +26,11 @@ export function useGalleryContext(blueprintsManager) {
       }
     };
 
-    if (JSON.stringify(newContext.dimensions) !== JSON.stringify({...context.dimensions})) {
-      if(getGallerySettings().useBlueprints) {
-        blueprintsManager.createBlueprint({...newContext})
-      }
-  
-      setContext(newContext);
-      }
+    if(getGallerySettings().useBlueprints) {
+      blueprintsManager.createBlueprint({...newContext})
+    }
+
+    setContext(newContext);
   };
 
   const setPreset = newPreset => {

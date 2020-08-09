@@ -15,7 +15,6 @@ import s from './SideBar.module.scss';
 import { GALLERY_CONSTS, notEligibleReasons, isEligibleForLeanGallery } from 'pro-gallery';
 import 'antd/dist/antd.css';
 import { getContainerUrlParams } from "./helper";
-import {utils} from 'pro-gallery-lib';
 
 function SideBar({ items, blueprintsManager }) {
   const {
@@ -231,15 +230,13 @@ function SideBar({ items, blueprintsManager }) {
           </Collapse.Panel>
         </Collapse>
 
-      {!utils.isMobile() && <>
-          <div style={{ height: 120 }} />
+        <div style={{ height: 120 }} />
 
-          <div className={s.code}>
-            <CodePanel />
-            <a className={s.report} target="_blank" rel="noreferrer" href="https://github.com/wix/pro-gallery/issues">report an issue</a>
-          </div>
-        </>
-      }
+        <div className={s.code}>
+          <CodePanel />
+          <a className={s.report} target="_blank" rel="noreferrer" href="https://github.com/wix/pro-gallery/issues">report an issue</a>
+        </div>
+
       </div>
     </>
   );
