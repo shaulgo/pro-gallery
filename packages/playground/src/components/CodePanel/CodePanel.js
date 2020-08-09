@@ -5,6 +5,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import {tomorrowNightEighties} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import s from './CodePanel.module.scss';
 import {useGalleryContext} from '../../hooks/useGalleryContext';
+import { galleryOptions } from 'pro-gallery-lib';
 import { getStyleParamsFromUrl } from '../../constants/styleParams'
 
 function CodePanel() {
