@@ -3,7 +3,6 @@ import {GalleryContext} from './GalleryContext';
 import {getInitialStyleParams, getStyleParamsFromUrl} from '../constants/styleParams';
 import { addPresetStyles } from 'pro-gallery';
 import {SIDEBAR_WIDTH} from '../constants/consts';
-import {utils} from 'pro-gallery-lib';
 
 export function useGalleryContext(blueprintsManager) {
   const [context, setContext] = useContext(GalleryContext);
@@ -106,7 +105,7 @@ export function useGalleryContext(blueprintsManager) {
 
   const calcGalleryDimensions = () => {
     let dimensions = {};
-    const showSide = !!getGallerySettings().showSide && !utils.isMobile();
+    const showSide = !!getGallerySettings().showSide
     dimensions.width = !showSide ? window.innerWidth : window.innerWidth - SIDEBAR_WIDTH;
     dimensions.height = window.innerHeight;
 
