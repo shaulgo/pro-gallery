@@ -8,6 +8,7 @@ export const fixedStyles = {
   groupSize: 1,
   hasThumbnails: false,
   groupTypes: '1',
+  slideshowLoop: false,
   // this params were moved from the presets in layoutHelper and were not tested and checked yet.
   smartCrop: false,
   galleryType: 'Columns',
@@ -21,7 +22,6 @@ export const fixedStyles = {
   isMasonry: false,
   isSlideshow: false,
   minItemSize: 50,
-  slideshowLoop: false,
 }
 
 export const createStyles = styles => {
