@@ -266,7 +266,7 @@ export class GalleryContainer extends React.Component {
       };
 
     this.createCssLayoutsIfNeeded(layoutParams);
-    this.createDynamicStyles();
+    this.createDynamicStyles(styles.overlayBackground);
 
     const newState = {items: loopingItems || items, styles, container, structure}
     return newState;
