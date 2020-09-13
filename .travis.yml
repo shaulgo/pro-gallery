@@ -8,6 +8,7 @@ cache:
   - packages/*/build
 dist: trusty
 sudo: required
+install: true
 jobs:
   include:
     - stage: "Build"
