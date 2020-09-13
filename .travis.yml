@@ -1,5 +1,5 @@
 language: node_js
-install: false
+install: true
 cache:
   directories:
   - node_modules
@@ -8,7 +8,6 @@ cache:
   - packages/*/build
 dist: trusty
 sudo: required
-install: true
 jobs:
   include:
     - stage: "Build"
