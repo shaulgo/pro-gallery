@@ -1,14 +1,18 @@
 language: node_js
+install: false
 cache:
   directories:
   - node_modules
   - packages/*/node_modules
+  - packages/*/dist
+  - packages/*/build
 dist: trusty
 sudo: required
 jobs:
   include:
     - stage: "Build"
       script:
+        - npm install    || travis_terminate 1;
         - npm run lint    || travis_terminate 1;
         - npm run build   || travis_terminate 1;
     - stage: "Tests"
